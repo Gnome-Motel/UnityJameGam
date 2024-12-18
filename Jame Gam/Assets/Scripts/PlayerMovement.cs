@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -20,23 +19,15 @@ public class PlayerMovement : MonoBehaviour
         joint = GetComponent<FixedJoint2D>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        if (rb.velocity.sqrMagnitude > maxSpeed) {
-            return;
-        }
         if (joint.enabled == true){
             float input = Input.GetAxisRaw("Horizontal");
-            Vector2 movement = new Vector2(input * speed, 0);
-            Debug.Log(movement);
-            rb.velocity += transform.right * movement;
+            rb.velocity += new Vector2(transform.right.x * speed * input, 0);
         }
-
     }
 
     void Update() {
-        Debug.Log(rb.velocity.sqrMagnitude);
         if (Input.GetKeyDown(KeyCode.Space)) {
             joint.enabled = false;
             rb.velocity *= launchSpeed;
