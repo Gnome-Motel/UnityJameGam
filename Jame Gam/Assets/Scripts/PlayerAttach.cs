@@ -13,7 +13,9 @@ public class PlayerAttach : MonoBehaviour
     [SerializeField] float xOffset;
     [SerializeField] float yOffset;
 
-    [SerializeField] float gravitySpeed;
+    [SerializeField] float initialGravitySpeed;
+    [SerializeField] float damping;
+    float gravitySpeed;
     float currentGravity;
 
 
@@ -68,20 +70,27 @@ public class PlayerAttach : MonoBehaviour
     }
 
     void AddGravityToPlayer(Transform player) {
-        if (player.rotation.z > 0) {
+        if (gravitySpeed > -10) {
+            gravitySpeed -= damping * Time.deltaTime;
+        }
+
+        if (player.rotation.z > 10) {
             currentGravity -= gravitySpeed * Time.deltaTime;
-            player.Rotate(new Vector3(0, 0, currentGravity * Time.deltaTime));
         }
 
         if (player.rotation.z < 0) {
             currentGravity += gravitySpeed * Time.deltaTime;
-            player.Rotate(new Vector3(0, 0, currentGravity * Time.deltaTime));
         }
+
+        player.Rotate(new Vector3(0, 0, currentGravity * Time.deltaTime));
+        currentGravity *= 0.99f;
+
     }
 
     //Function to hook a player to a peg. Locks individual movement, parents them, aligns player, and updates the most recent peg
     public void Attatch(Transform t)
     {
+        gravitySpeed = initialGravitySpeed;
         player.transform.parent = t;
         player.transform.position = t.position;
         playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
