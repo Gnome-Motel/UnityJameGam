@@ -8,7 +8,7 @@ public class PlayerAttach : MonoBehaviour
     private bool near = false;
     [SerializeField] GameObject player;
     [SerializeField] Rigidbody2D playerRB;
-    [SerializeField] PlayerMovement mover;
+    [SerializeField] PlayerMovement playerMovement;
 
     [SerializeField] float xOffset;
     [SerializeField] float yOffset;
@@ -38,19 +38,27 @@ public class PlayerAttach : MonoBehaviour
     }
 
     private void Update()
-    {
-        if (near && Input.GetButton("Grab"))
-        {
-            if (player.transform.parent == null)
+    {   
+        if (Input.GetButtonDown("Grab")){
+            if (near)
             {
-                Attatch(transform);
+                if (player.transform.parent == null)
+                {
+                    Attatch(transform);
+                    return;
+                }
             }
-        }
-        else
-        {
-            player.transform.parent = null;
-            playerRB.constraints = RigidbodyConstraints2D.None;
-            mover.hooked = false;
+            
+            if (playerMovement == null) {
+                return;
+            }
+
+            if (playerMovement.hooked)
+            {
+                player.transform.parent = null;
+                playerRB.constraints = RigidbodyConstraints2D.None;
+                playerMovement.hooked = false;
+            }
         }
     }
 
@@ -60,7 +68,7 @@ public class PlayerAttach : MonoBehaviour
         player.transform.parent = t;
         player.transform.position = t.position;
         playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
-        mover.lastPeg = t;
-        mover.hooked = true;
+        playerMovement.lastPeg = t;
+        playerMovement.hooked = true;
     }
 }
