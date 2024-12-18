@@ -2006,7 +2006,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1773586728423226137}
   - component: {fileID: 7450165546398763139}
-  - component: {fileID: 2978179269565080306}
   - component: {fileID: 6745633137437126735}
   - component: {fileID: 7461330588841288803}
   m_Layer: 0
@@ -2160,7 +2159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538506640063762313}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.6245613, w: 0.7809758}
   m_LocalPosition: {x: 5.58, y: 2.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2168,7 +2167,7 @@ Transform:
   - {fileID: 3934358956003887642}
   - {fileID: 1736656657405422632}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 77.3}
 --- !u!212 &2746910409942471553
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2221,25 +2220,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!255 &2978179269565080306
-FixedJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538506640063762313}
-  m_Enabled: 0
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_BreakAction: 3
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_DampingRatio: 0
-  m_Frequency: 0
 --- !u!1 &3112827552759664076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2273,9 +2253,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 538506640063762313}
   playerRB: {fileID: 7450165546398763139}
-  mover: {fileID: 6745633137437126735}
+  playerMovement: {fileID: 6745633137437126735}
   xOffset: 0
   yOffset: 0
+  gravitySpeed: 500
 --- !u!4 &3934358956003887642
 Transform:
   m_ObjectHideFlags: 0
