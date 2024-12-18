@@ -29,9 +29,9 @@ public class PlayerAttach : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (near && Input.GetButtonDown("Grab"))
+        if (near && Input.GetButton("Grab"))
         {
             player.transform.parent = transform;
         }
