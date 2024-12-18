@@ -12,7 +12,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float upSpeed = 25;
     [SerializeField] private float maxSpeed = 1;
 
-    // Start is called before the first frame update
+    //new variables for PlayerAttatch to contact
+    public Transform lastPeg = null;
+    public bool hooked = false;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,6 +25,12 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        //temporary rotation demonstration
+        if (hooked)
+        {
+            transform.Rotate(0, 0, 7f);
+        }
+
         if (joint.enabled == true){
             float input = Input.GetAxisRaw("Horizontal");
             rb.velocity += new Vector2(transform.right.x * speed * input, 0);
@@ -28,10 +38,29 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update() {
+        //checks for 'Return' input
+        if (Input.GetButtonDown("Return"))
+        {
+            Return(lastPeg);
+        }
         if (Input.GetKeyDown(KeyCode.Space)) {
             joint.enabled = false;
             rb.velocity *= launchSpeed;
             rb.velocity += new Vector2(0, upSpeed);
         }
+    }
+
+    //function copied and modified from playerAttatch's Attatch
+    //returns player to the last peg they were at
+    //As of now, triggers on input down 'f', could be expanded to upon death as well.
+    public void Return(Transform t)
+    {
+        if (lastPeg != null) 
+        {
+            rb.velocity = new Vector2(0f, 0f);
+            transform.rotation = t.rotation;
+            transform.position = t.position;
+        }
+
     }
 }
