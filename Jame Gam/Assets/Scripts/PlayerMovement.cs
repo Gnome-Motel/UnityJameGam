@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         if (rb.velocity.sqrMagnitude > maxSpeed) {
-            
+            return;
         }
         if (joint.enabled == true){
             float input = Input.GetAxisRaw("Horizontal");
