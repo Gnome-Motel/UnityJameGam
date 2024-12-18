@@ -70,10 +70,6 @@ public class PlayerAttach : MonoBehaviour
     }
 
     void AddGravityToPlayer(Transform player) {
-        if (gravitySpeed > -10) {
-            gravitySpeed -= damping * Time.deltaTime;
-        }
-
         if (player.rotation.z > 10) {
             currentGravity -= gravitySpeed * Time.deltaTime;
         }
@@ -83,8 +79,6 @@ public class PlayerAttach : MonoBehaviour
         }
 
         player.Rotate(new Vector3(0, 0, currentGravity * Time.deltaTime));
-        currentGravity *= 0.99f;
-
     }
 
     //Function to hook a player to a peg. Locks individual movement, parents them, aligns player, and updates the most recent peg
