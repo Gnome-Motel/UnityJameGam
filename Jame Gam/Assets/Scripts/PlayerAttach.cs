@@ -13,6 +13,10 @@ public class PlayerAttach : MonoBehaviour
     [SerializeField] float xOffset;
     [SerializeField] float yOffset;
 
+    [SerializeField] float gravitySpeed;
+    float currentGravity;
+
+
     void Start()
     {
         //coll = GetComponent<CircleCollider2D>();
@@ -48,10 +52,6 @@ public class PlayerAttach : MonoBehaviour
                     return;
                 }
             }
-            
-            if (playerMovement == null) {
-                return;
-            }
 
             if (playerMovement.hooked)
             {
@@ -59,6 +59,23 @@ public class PlayerAttach : MonoBehaviour
                 playerRB.constraints = RigidbodyConstraints2D.None;
                 playerMovement.hooked = false;
             }
+        }
+
+        if (playerMovement.hooked) {
+            AddGravityToPlayer(player.transform);
+        }
+
+    }
+
+    void AddGravityToPlayer(Transform player) {
+        if (player.rotation.z > 0) {
+            currentGravity -= gravitySpeed * Time.deltaTime;
+            player.Rotate(new Vector3(0, 0, currentGravity * Time.deltaTime));
+        }
+
+        if (player.rotation.z < 0) {
+            currentGravity += gravitySpeed * Time.deltaTime;
+            player.Rotate(new Vector3(0, 0, currentGravity * Time.deltaTime));
         }
     }
 

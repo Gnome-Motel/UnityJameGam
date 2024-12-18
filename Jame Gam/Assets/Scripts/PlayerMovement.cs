@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         //temporary rotation demonstration
         if (hooked)
         {
-            transform.Rotate(0, 0, 7f);
+            //transform.Rotate(0, 0, 7f);
         }
     }
 
