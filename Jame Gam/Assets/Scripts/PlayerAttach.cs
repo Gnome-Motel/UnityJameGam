@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class PlayerAttach : MonoBehaviour
 {
-    private bool near = false;
-    public GameObject player;
+    private GameObject nearestPeg = null;
     Rigidbody2D playerRB;
     PlayerMovement playerMovement;
 
@@ -26,32 +25,34 @@ public class PlayerAttach : MonoBehaviour
     [SerializeField] float grabTimeBuffer = 0.3f;
     float grabTimeLeft;
 
-    private Animator anim;
+    [SerializeField] private Transform startingPeg;
 
 
     void Start()
     {
-        playerRB = player.GetComponent<Rigidbody2D>();
-        playerMovement = player.GetComponent<PlayerMovement>();
+        playerRB = GetComponent<Rigidbody2D>();
+        playerMovement = GetComponent<PlayerMovement>();
         trajectoryLine = GetComponent<LineRenderer>();
-        anim = GetComponent<Animator>();
+
+        Attatch(startingPeg);
+        playerMovement.lastPeg = startingPeg;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject == player)
+        if (other.CompareTag("Peg"))
         {
-            near = true;
-            anim.SetBool("near", near);
+            nearestPeg = other.gameObject;
+            nearestPeg.GetComponent<Animator>().SetBool("near", true);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (collision.gameObject == player)
+        if (other.CompareTag("Peg"))
         {
-            near = false;
-            anim.SetBool("near", near);
+            nearestPeg.GetComponent<Animator>().SetBool("near", false);
+            nearestPeg = null;
         }
     }
 
@@ -62,26 +63,24 @@ public class PlayerAttach : MonoBehaviour
             grabTimeLeft = grabTimeBuffer;
         }
 
-        if (grabTimeLeft > 0){
-            if (near)
+        if (grabTimeLeft > 0 && nearestPeg != null){
+            if (transform.parent == null)
             {
-                if (player.transform.parent == null)
-                {
-                    Attatch(transform);
+                    Attatch(nearestPeg.transform);
                     grabTimeLeft = 0;
                     return;
-                }
-                if (playerMovement.hooked)
-                {
-                    LaunchPlayer();
-                    grabTimeLeft = 0;
-                    return;
-                }
             }
+            if (playerMovement.hooked)
+            {
+                LaunchPlayer();
+                grabTimeLeft = 0;
+                return;
+            }
+
         }
 
-        if (playerMovement.hooked && near) {
-            AddGravityToPlayer(player.transform);
+        if (playerMovement.hooked) {
+            AddGravityToPlayer(transform);
         }
 
         DrawTrajectory();
@@ -102,14 +101,13 @@ public class PlayerAttach : MonoBehaviour
         currentGravity *= 1f - damping * Time.deltaTime;
 
         player.Rotate(new Vector3(0, 0, currentGravity * Time.deltaTime));
-
     }
 
     void LaunchPlayer(){
-        player.transform.parent = null;
+        transform.parent = null;
         playerRB.constraints = RigidbodyConstraints2D.None;
         playerMovement.hooked = false;
-        playerRB.velocity = player.transform.right * currentGravity / 20;
+        playerRB.velocity = transform.right * currentGravity / 20;
         grabTimeLeft = 0;
     }
 
@@ -117,15 +115,15 @@ public class PlayerAttach : MonoBehaviour
     public void Attatch(Transform peg, bool resetLives = true)
     {
         gravitySpeed = initialGravitySpeed;
-        if (player.transform.rotation.z < 0) {
+        if (transform.rotation.z < 0) {
             currentGravity = initialGravitySpeed /2;
         }
-        if (player.transform.rotation.z > 0) {
+        if (transform.rotation.z > 0) {
             currentGravity = -initialGravitySpeed / 2;
         }
 
-        player.transform.parent = peg;
-        player.transform.position = peg.position;
+        transform.parent = peg;
+        transform.position = peg.position;
         playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
         if (resetLives) {
             playerMovement.lives = playerMovement.maxLives;
@@ -136,14 +134,14 @@ public class PlayerAttach : MonoBehaviour
     }
 
     void DrawTrajectory(){
-        if (!near || player.transform.parent == null)
+        if (nearestPeg == null || transform.parent == null)
         {
             trajectoryLine.positionCount = 0;
             return;
         }
 
-        Vector2 startPosition = player.transform.position;
-        Vector2 startVelocity = player.transform.right * currentGravity / 20;
+        Vector2 startPosition = transform.position;
+        Vector2 startVelocity = transform.right * currentGravity / 20;
         Vector2 gravity = Physics2D.gravity;
 
         trajectoryLine.positionCount = trajectoryResolution;

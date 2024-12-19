@@ -9,25 +9,18 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator anim;
-    [SerializeField] private Transform startingPeg;
 
     //new variables for PlayerAttatch to contact
-    [HideInInspector] public Transform lastPeg = null;
-    [HideInInspector] public bool hooked = false;
+    public Transform lastPeg = null;
+    public bool hooked = false;
 
     public int maxLives;
-    [HideInInspector] public int lives;
+    public int lives;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        lives = maxLives;
-
-        Return(startingPeg);
-        lastPeg = startingPeg;
-
-        // This is called a second time because @Return removes a life.
         lives = maxLives;
     }
 
@@ -50,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
 
-            peg.GetComponent<PlayerAttach>().Attatch(peg.transform, false);
+            GetComponent<PlayerAttach>().Attatch(peg.transform, false);
             rb.velocity = new Vector2(0f, 0f);
             transform.rotation = peg.rotation;
             transform.position = peg.position;
