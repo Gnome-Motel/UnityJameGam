@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,25 +23,12 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         lives = maxLives;
+
         Return(startingPeg);
         lastPeg = startingPeg;
-    }
 
-    void FixedUpdate()
-    {
-        //temporary rotation demonstration
-        if (hooked)
-        {
-            //transform.Rotate(0, 0, 7f);
-        }
-    }
-
-    void Update() {
-        //checks for 'Return' input
-        if (Input.GetButtonDown("Return"))
-        {
-            Return(lastPeg);
-        }
+        // This is called a second time because @Return removes a life.
+        lives = maxLives;
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -56,7 +45,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (peg != null) 
         {
-            peg.GetComponent<PlayerAttach>().Attatch(peg.transform);
+            lives -= 1;
+            if (lives <= 0) {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+
+            peg.GetComponent<PlayerAttach>().Attatch(peg.transform, false);
             rb.velocity = new Vector2(0f, 0f);
             transform.rotation = peg.rotation;
             transform.position = peg.position;

@@ -142,7 +142,7 @@ MonoBehaviour:
   damping: 0.3
   moveSpeed: 250
   currentGravity: 0
-  trajectoryLine: {fileID: 0}
+  trajectoryLine: {fileID: 6303500949626329616}
   trajectoryResolution: 30
   trajectoryTimeStep: 0.1
   grabTimeBuffer: 0.1

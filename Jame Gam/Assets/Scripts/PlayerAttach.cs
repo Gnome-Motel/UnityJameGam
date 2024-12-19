@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerAttach : MonoBehaviour
 {
@@ -74,12 +73,9 @@ public class PlayerAttach : MonoBehaviour
                 }
                 if (playerMovement.hooked)
                 {
-                    player.transform.parent = null;
-                    playerRB.constraints = RigidbodyConstraints2D.None;
-                    playerMovement.hooked = false;
-                    playerRB.velocity = player.transform.right * currentGravity / 20;
+                    LaunchPlayer();
                     grabTimeLeft = 0;
-
+                    return;
                 }
             }
         }
@@ -109,8 +105,16 @@ public class PlayerAttach : MonoBehaviour
 
     }
 
+    void LaunchPlayer(){
+        player.transform.parent = null;
+        playerRB.constraints = RigidbodyConstraints2D.None;
+        playerMovement.hooked = false;
+        playerRB.velocity = player.transform.right * currentGravity / 20;
+        grabTimeLeft = 0;
+    }
+
     //Function to hook a player to a peg. Locks individual movement, parents them, aligns player, and updates the most recent peg
-    public void Attatch(Transform t)
+    public void Attatch(Transform peg, bool resetLives = true)
     {
         gravitySpeed = initialGravitySpeed;
         if (player.transform.rotation.z < 0) {
@@ -120,21 +124,14 @@ public class PlayerAttach : MonoBehaviour
             currentGravity = -initialGravitySpeed / 2;
         }
 
-        player.transform.parent = t;
-        player.transform.position = t.position;
+        player.transform.parent = peg;
+        player.transform.position = peg.position;
         playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
-        if (playerMovement.lastPeg == t) {
-            playerMovement.lives -= 1;
-            Debug.Log(playerMovement.lives);
-        } else {
+        if (resetLives) {
             playerMovement.lives = playerMovement.maxLives;
         }
 
-        if (playerMovement.lives <= 0) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-
-        playerMovement.lastPeg = t;
+        playerMovement.lastPeg = peg;
         playerMovement.hooked = true;
     }
 
