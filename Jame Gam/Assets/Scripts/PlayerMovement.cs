@@ -35,10 +35,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Return(lastPeg);
         }
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            rb.velocity *= launchSpeed;
-            rb.velocity += new Vector2(0, upSpeed);
-        }
     }
 
     //function copied and modified from playerAttatch's Attatch
