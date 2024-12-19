@@ -15,8 +15,9 @@ public class PlayerAttach : MonoBehaviour
 
     [SerializeField] float initialGravitySpeed;
     [SerializeField] float damping;
+    [SerializeField] float moveSpeed;
     float gravitySpeed;
-    float currentGravity;
+    [HideInInspector] public float currentGravity;
 
 
     void Start()
@@ -53,20 +54,27 @@ public class PlayerAttach : MonoBehaviour
                     Attatch(transform);
                     return;
                 }
-            }
-
-            if (playerMovement.hooked)
-            {
-                player.transform.parent = null;
-                playerRB.constraints = RigidbodyConstraints2D.None;
-                playerMovement.hooked = false;
+                if (playerMovement.hooked)
+                {
+                    player.transform.parent = null;
+                    playerRB.constraints = RigidbodyConstraints2D.None;
+                    playerMovement.hooked = false;
+                    Debug.Log(currentGravity);
+                    playerRB.velocity = player.transform.right * currentGravity / 25;
+                }
             }
         }
+
+        float movement = Input.GetAxisRaw("Horizontal");
+        currentGravity += movement * moveSpeed * Time.deltaTime;
 
         if (playerMovement.hooked) {
             AddGravityToPlayer(player.transform);
         }
 
+        if (playerRB != null){
+            Debug.Log(playerRB.velocity.sqrMagnitude);
+        }
     }
 
     void AddGravityToPlayer(Transform player) {
@@ -88,6 +96,12 @@ public class PlayerAttach : MonoBehaviour
     public void Attatch(Transform t)
     {
         gravitySpeed = initialGravitySpeed;
+        if (player.transform.rotation.z < 0) {
+            currentGravity = initialGravitySpeed /2;
+        }
+        if (player.transform.rotation.z > 0) {
+            currentGravity = -initialGravitySpeed / 2;
+        }
         player.transform.parent = t;
         player.transform.position = t.position;
         playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
