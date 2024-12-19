@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1256855768091593478}
   - component: {fileID: 3373198592350417502}
   - component: {fileID: 6303500949626329616}
+  - component: {fileID: 8615298354171464632}
   m_Layer: 0
   m_Name: Peg
   m_TagString: Peg
@@ -144,6 +145,7 @@ MonoBehaviour:
   trajectoryLine: {fileID: 0}
   trajectoryResolution: 30
   trajectoryTimeStep: 0.1
+  grabTimeBuffer: 0.1
 --- !u!120 &6303500949626329616
 LineRenderer:
   serializedVersion: 2
@@ -248,3 +250,24 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!95 &8615298354171464632
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3583927878545962008}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0da40da57ac304794a43f8ed012a4a4b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

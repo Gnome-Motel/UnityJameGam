@@ -23,12 +23,18 @@ public class PlayerAttach : MonoBehaviour
     [SerializeField] int trajectoryResolution = 30;
     [SerializeField] float trajectoryTimeStep = 0.1f;
 
+    [SerializeField] float grabTimeBuffer = 0.3f;
+    float grabTimeLeft;
+
+    private Animator anim;
+
 
     void Start()
     {
         playerRB = player.GetComponent<Rigidbody2D>();
         playerMovement = player.GetComponent<PlayerMovement>();
         trajectoryLine = GetComponent<LineRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,6 +42,7 @@ public class PlayerAttach : MonoBehaviour
         if (collision.gameObject == player)
         {
             near = true;
+            anim.SetBool("near", near);
         }
     }
 
@@ -43,19 +50,25 @@ public class PlayerAttach : MonoBehaviour
     {
         if (collision.gameObject == player)
         {
-            Debug.Log("out");
             near = false;
+            anim.SetBool("near", near);
         }
     }
 
     private void Update()
     {   
+        grabTimeLeft -= Time.deltaTime;
         if (Input.GetButtonDown("Grab")){
+            grabTimeLeft = grabTimeBuffer;
+        }
+
+        if (grabTimeLeft > 0){
             if (near)
             {
                 if (player.transform.parent == null)
                 {
                     Attatch(transform);
+                    grabTimeLeft = 0;
                     return;
                 }
                 if (playerMovement.hooked)
@@ -65,6 +78,8 @@ public class PlayerAttach : MonoBehaviour
                     playerMovement.hooked = false;
                     Debug.Log(currentGravity);
                     playerRB.velocity = player.transform.right * currentGravity / 20;
+                    grabTimeLeft = 0;
+
                 }
             }
         }
