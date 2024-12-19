@@ -19,11 +19,16 @@ public class PlayerAttach : MonoBehaviour
     float gravitySpeed;
     [HideInInspector] public float currentGravity;
 
+    [SerializeField] LineRenderer trajectoryLine;
+    [SerializeField] int trajectoryResolution = 30;
+    [SerializeField] float trajectoryTimeStep = 0.1f;
+
 
     void Start()
     {
         playerRB = player.GetComponent<Rigidbody2D>();
         playerMovement = player.GetComponent<PlayerMovement>();
+        trajectoryLine = GetComponent<LineRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,24 +64,26 @@ public class PlayerAttach : MonoBehaviour
                     playerRB.constraints = RigidbodyConstraints2D.None;
                     playerMovement.hooked = false;
                     Debug.Log(currentGravity);
-                    playerRB.velocity = player.transform.right * currentGravity / 25;
+                    playerRB.velocity = player.transform.right * currentGravity / 20;
                 }
             }
         }
 
-        float movement = Input.GetAxisRaw("Horizontal");
-        currentGravity += movement * moveSpeed * Time.deltaTime;
-
-        if (playerMovement.hooked) {
+        if (playerMovement.hooked && near) {
             AddGravityToPlayer(player.transform);
         }
 
         if (playerRB != null){
             Debug.Log(playerRB.velocity.sqrMagnitude);
         }
+
+        DrawTrajectory();
     }
 
     void AddGravityToPlayer(Transform player) {
+        float movement = Input.GetAxisRaw("Horizontal");
+        currentGravity += movement * moveSpeed * Time.deltaTime;
+
         if (player.rotation.z > 0) {
             currentGravity -= gravitySpeed * Time.deltaTime;
         }
@@ -107,4 +114,26 @@ public class PlayerAttach : MonoBehaviour
         playerMovement.lastPeg = t;
         playerMovement.hooked = true;
     }
+
+    void DrawTrajectory(){
+        if (!near || player.transform.parent == null)
+        {
+            trajectoryLine.positionCount = 0;
+            return;
+        }
+
+        Vector2 startPosition = player.transform.position;
+        Vector2 startVelocity = player.transform.right * currentGravity / 20;
+        Vector2 gravity = Physics2D.gravity;
+
+        trajectoryLine.positionCount = trajectoryResolution;
+
+        for (int i = 0; i < trajectoryResolution; i++)
+        {
+            float time = i * trajectoryTimeStep;
+            Vector2 position = startPosition + startVelocity * time + 0.5f * gravity * time * time;
+            trajectoryLine.SetPosition(i, position);
+        }
+    }
+
 }
