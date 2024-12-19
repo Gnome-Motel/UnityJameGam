@@ -6,18 +6,19 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    [SerializeField] private float speed;
-    [SerializeField] private float launchSpeed = 25;
-    [SerializeField] private float upSpeed = 25;
-    [SerializeField] private float maxSpeed = 1;
+    private Animator anim;
+    [SerializeField] private Transform startingPeg;
 
     //new variables for PlayerAttatch to contact
-    public Transform lastPeg = null;
-    public bool hooked = false;
+    [HideInInspector] public Transform lastPeg = null;
+    [HideInInspector] public bool hooked = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        lastPeg = startingPeg;
+        Return(lastPeg);
     }
 
     void FixedUpdate()
@@ -37,16 +38,24 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Respawn")){
+            Return(lastPeg);
+            anim.SetTrigger("respawn");
+        }
+    }
+
     //function copied and modified from playerAttatch's Attatch
     //returns player to the last peg they were at
     //As of now, triggers on input down 'f', could be expanded to upon death as well.
-    public void Return(Transform t)
+    public void Return(Transform peg)
     {
         if (lastPeg != null) 
         {
+            lastPeg.GetComponent<PlayerAttach>().Attatch(lastPeg.transform);
             rb.velocity = new Vector2(0f, 0f);
-            transform.rotation = t.rotation;
-            transform.position = t.position;
+            transform.rotation = peg.rotation;
+            transform.position = peg.position;
         }
 
     }
