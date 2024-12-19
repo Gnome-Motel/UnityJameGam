@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using Unity.Mathematics;
+using System;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -8,6 +11,8 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Vector3 offset = new Vector3(0, 0, -10);
     private float lowestY;
     private PlayerMovement playerMovement;
+
+    [SerializeField] private TextMeshProUGUI score;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +24,7 @@ public class CameraFollow : MonoBehaviour
         if (playerMovement.hooked) {
             lowestY = transform.position.y;
         }
+        score.text = MathF.Round(lowestY).ToString();
     }
 
     // Update is called once per frame
