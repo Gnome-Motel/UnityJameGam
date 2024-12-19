@@ -6,26 +6,28 @@ using UnityEngine;
 public class PlayerAttach : MonoBehaviour
 {
     private GameObject nearestPeg = null;
-    Rigidbody2D playerRB;
-    PlayerMovement playerMovement;
+    private Rigidbody2D playerRB;
+    private PlayerMovement playerMovement;
 
-    [SerializeField] float xOffset;
-    [SerializeField] float yOffset;
+    [SerializeField] private Transform startingPeg;
 
+    [Header("Hooked Movement")]
     [SerializeField] float initialGravitySpeed;
     [SerializeField] float damping;
     [SerializeField] float moveSpeed;
     float gravitySpeed;
     [HideInInspector] public float currentGravity;
 
-    [SerializeField] LineRenderer trajectoryLine;
+    [Header("Trajectory")]
     [SerializeField] int trajectoryResolution = 30;
     [SerializeField] float trajectoryTimeStep = 0.1f;
+    LineRenderer trajectoryLine;
 
+    [Header("Player Help")]
     [SerializeField] float grabTimeBuffer = 0.3f;
     float grabTimeLeft;
 
-    [SerializeField] private Transform startingPeg;
+    
 
 
     void Start()
@@ -33,6 +35,8 @@ public class PlayerAttach : MonoBehaviour
         playerRB = GetComponent<Rigidbody2D>();
         playerMovement = GetComponent<PlayerMovement>();
         trajectoryLine = GetComponent<LineRenderer>();
+        gravitySpeed = initialGravitySpeed;
+
 
         Attatch(startingPeg);
         playerMovement.lastPeg = startingPeg;
@@ -84,6 +88,7 @@ public class PlayerAttach : MonoBehaviour
         }
 
         DrawTrajectory();
+        Debug.Log(playerRB.velocity);
     }
 
     void AddGravityToPlayer(Transform player) {
@@ -113,14 +118,11 @@ public class PlayerAttach : MonoBehaviour
 
     //Function to hook a player to a peg. Locks individual movement, parents them, aligns player, and updates the most recent peg
     public void Attatch(Transform peg, bool resetLives = true)
-    {
-        gravitySpeed = initialGravitySpeed;
-        if (transform.rotation.z < 0) {
-            currentGravity = initialGravitySpeed /2;
-        }
-        if (transform.rotation.z > 0) {
-            currentGravity = -initialGravitySpeed / 2;
-        }
+    {   
+        float xMagnitude = playerRB.velocity.x * (1- (transform.rotation.z / 90));
+        float yMagnitude = playerRB.velocity.y * (transform.rotation.z / 90);
+
+        currentGravity = 2 * ((playerRB.velocity.x * xMagnitude) + (playerRB.velocity.y * yMagnitude));
 
         transform.parent = peg;
         transform.position = peg.position;

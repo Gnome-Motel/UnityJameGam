@@ -11,11 +11,11 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
 
     //new variables for PlayerAttatch to contact
-    public Transform lastPeg = null;
-    public bool hooked = false;
+    [HideInInspector] public Transform lastPeg = null;
+    [HideInInspector] public bool hooked = false;
 
     public int maxLives;
-    public int lives;
+    [HideInInspector] public int lives;
 
     void Start()
     {
@@ -45,7 +45,11 @@ public class PlayerMovement : MonoBehaviour
 
             GetComponent<PlayerAttach>().Attatch(peg.transform, false);
             rb.velocity = new Vector2(0f, 0f);
-            transform.rotation = peg.rotation;
+            if (Random.Range(0f, 1f) > 0.5){
+                transform.rotation = Quaternion.Euler(0, 0, 45);
+            } else {
+                transform.rotation = Quaternion.Euler(0, 0, -45);
+            }
             transform.position = peg.position;
         }
 
