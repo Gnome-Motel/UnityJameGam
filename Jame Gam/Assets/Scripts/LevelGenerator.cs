@@ -27,17 +27,17 @@ public class LevelGenerator : MonoBehaviour
     {
         int i = 0;
         while (i < pegCount){
-            float previouxX = 0;
-            Vector2 position = Vector2.zero;
+            float previouxX;
+            Vector2 position;
             position = new Vector2(Random.Range(-xRange, xRange), currentY);
-            GameObject currentPeg = Instantiate(peg, position, Quaternion.identity);
+            Instantiate(peg, position, Quaternion.identity);
             previouxX = position.x;
 
             if (Random.Range(0f, 1f) < doublePegRate) {
                 do {
                     position = new Vector2(Random.Range(-xRange, xRange), currentY);
                 } while (Vector2.Distance(position, new Vector2(previouxX, currentY)) < 4);
-                currentPeg = Instantiate(peg, position, Quaternion.identity);
+                Instantiate(peg, position, Quaternion.identity);
             }
             currentY += Random.Range(minYStep, maxYStep);
             i += 1;

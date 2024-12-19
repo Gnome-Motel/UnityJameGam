@@ -25,6 +25,7 @@ public class CameraFollow : MonoBehaviour
             lowestY = transform.position.y;
         }
         score.text = MathF.Round(lowestY).ToString();
+        lowestY += Time.deltaTime / 8;
     }
 
     // Update is called once per frame

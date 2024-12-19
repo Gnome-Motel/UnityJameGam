@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         lives = maxLives;
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
+    void OnTriggerStay2D(Collider2D other) {
         if (other.CompareTag("Respawn")){
             Return(lastPeg);
             anim.SetTrigger("respawn");
@@ -42,8 +42,9 @@ public class PlayerMovement : MonoBehaviour
             if (lives <= 0) {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
-
-            GetComponent<PlayerAttach>().Attatch(peg.transform, false);
+            PlayerAttach attach = GetComponent<PlayerAttach>();
+            attach.Attatch(peg.transform, false);
+            attach.currentGravity = 0;
             rb.velocity = new Vector2(0f, 0f);
             if (Random.Range(0f, 1f) > 0.5){
                 transform.rotation = Quaternion.Euler(0, 0, 45);

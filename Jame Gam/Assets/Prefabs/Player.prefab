@@ -95,11 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d1cc7045a5246f8824d3245e878fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  launchSpeed: 5
-  upSpeed: 10
-  maxSpeed: 0.2
   lastPeg: {fileID: 0}
+  hooked: 0
+  maxLives: 0
+  lives: 0
 --- !u!70 &7194282829235412764
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

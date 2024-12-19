@@ -47,7 +47,7 @@ public class PlayerAttach : MonoBehaviour
         if (other.CompareTag("Peg"))
         {
             nearestPeg = other.gameObject;
-            nearestPeg.GetComponent<Animator>().SetBool("near", true);
+            other.GetComponent<Animator>().SetBool("near", true);
         }
     }
 
@@ -55,7 +55,7 @@ public class PlayerAttach : MonoBehaviour
     {
         if (other.CompareTag("Peg"))
         {
-            nearestPeg.GetComponent<Animator>().SetBool("near", false);
+            other.GetComponent<Animator>().SetBool("near", false);
             nearestPeg = null;
         }
     }
@@ -87,8 +87,7 @@ public class PlayerAttach : MonoBehaviour
             AddGravityToPlayer(transform);
         }
 
-        DrawTrajectory();
-        Debug.Log(playerRB.velocity);
+        //DrawTrajectory();
     }
 
     void AddGravityToPlayer(Transform player) {
@@ -112,7 +111,7 @@ public class PlayerAttach : MonoBehaviour
         transform.parent = null;
         playerRB.constraints = RigidbodyConstraints2D.None;
         playerMovement.hooked = false;
-        playerRB.velocity = transform.right * currentGravity / 20;
+        playerRB.velocity = transform.right * (Mathf.Sqrt(Mathf.Abs(currentGravity+0.0001f))/2) * (currentGravity/Mathf.Abs(currentGravity));
         grabTimeLeft = 0;
     }
 
