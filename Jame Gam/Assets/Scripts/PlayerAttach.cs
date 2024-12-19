@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerAttach : MonoBehaviour
 {
@@ -76,7 +77,6 @@ public class PlayerAttach : MonoBehaviour
                     player.transform.parent = null;
                     playerRB.constraints = RigidbodyConstraints2D.None;
                     playerMovement.hooked = false;
-                    Debug.Log(currentGravity);
                     playerRB.velocity = player.transform.right * currentGravity / 20;
                     grabTimeLeft = 0;
 
@@ -86,10 +86,6 @@ public class PlayerAttach : MonoBehaviour
 
         if (playerMovement.hooked && near) {
             AddGravityToPlayer(player.transform);
-        }
-
-        if (playerRB != null){
-            Debug.Log(playerRB.velocity.sqrMagnitude);
         }
 
         DrawTrajectory();
@@ -123,9 +119,21 @@ public class PlayerAttach : MonoBehaviour
         if (player.transform.rotation.z > 0) {
             currentGravity = -initialGravitySpeed / 2;
         }
+
         player.transform.parent = t;
         player.transform.position = t.position;
         playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
+        if (playerMovement.lastPeg == t) {
+            playerMovement.lives -= 1;
+            Debug.Log(playerMovement.lives);
+        } else {
+            playerMovement.lives = playerMovement.maxLives;
+        }
+
+        if (playerMovement.lives <= 0) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
         playerMovement.lastPeg = t;
         playerMovement.hooked = true;
     }

@@ -13,12 +13,16 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public Transform lastPeg = null;
     [HideInInspector] public bool hooked = false;
 
+    public int maxLives;
+    [HideInInspector] public int lives;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        lives = maxLives;
+        Return(startingPeg);
         lastPeg = startingPeg;
-        Return(lastPeg);
     }
 
     void FixedUpdate()
@@ -50,9 +54,9 @@ public class PlayerMovement : MonoBehaviour
     //As of now, triggers on input down 'f', could be expanded to upon death as well.
     public void Return(Transform peg)
     {
-        if (lastPeg != null) 
+        if (peg != null) 
         {
-            lastPeg.GetComponent<PlayerAttach>().Attatch(lastPeg.transform);
+            peg.GetComponent<PlayerAttach>().Attatch(peg.transform);
             rb.velocity = new Vector2(0f, 0f);
             transform.rotation = peg.rotation;
             transform.position = peg.position;
