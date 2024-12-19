@@ -6,9 +6,9 @@ using UnityEngine;
 public class PlayerAttach : MonoBehaviour
 {
     private bool near = false;
-    [SerializeField] GameObject player;
-    [SerializeField] Rigidbody2D playerRB;
-    [SerializeField] PlayerMovement playerMovement;
+    public GameObject player;
+    Rigidbody2D playerRB;
+    PlayerMovement playerMovement;
 
     [SerializeField] float xOffset;
     [SerializeField] float yOffset;
@@ -22,16 +22,15 @@ public class PlayerAttach : MonoBehaviour
 
     void Start()
     {
-        //coll = GetComponent<CircleCollider2D>();
+        playerRB = player.GetComponent<Rigidbody2D>();
+        playerMovement = player.GetComponent<PlayerMovement>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Didn't Worked");
         if (collision.gameObject == player)
         {
             near = true;
-            Debug.Log("Worked");
         }
     }
 
