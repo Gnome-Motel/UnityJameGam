@@ -13,6 +13,7 @@ public class CameraFollow : MonoBehaviour
     private PlayerMovement playerMovement;
 
     [SerializeField] private TextMeshProUGUI score;
+    [SerializeField] private float followSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class CameraFollow : MonoBehaviour
     }
 
     void Update() {
-        if (playerMovement.hooked) {
+        if (playerMovement.hooked && lowestY < transform.position.y) {
             lowestY = transform.position.y;
         }
         score.text = MathF.Round(lowestY).ToString();
@@ -36,7 +37,12 @@ public class CameraFollow : MonoBehaviour
             y = target.position.y;
         }
 
-        Vector3 pos = new Vector3(transform.position.x, y, target.position.z + offset.z);
+        Vector3 pos;
+        if (playerMovement.hooked) {
+            pos = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, y, followSpeed), target.position.z + offset.z);
+        } else {
+            pos = new Vector3(transform.position.x, y, target.position.z + offset.z);
+        }   
         transform.position = pos;
     }
 }

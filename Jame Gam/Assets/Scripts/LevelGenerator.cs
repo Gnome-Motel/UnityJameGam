@@ -13,6 +13,7 @@ public class LevelGenerator : MonoBehaviour
     [Header("X Movement")]
     [SerializeField] private float xRange;
     [SerializeField] private float doublePegRate = 0.2f;
+    [SerializeField] private float pegDistance = 4f;
 
     [Header("Scene Objects")]
     [SerializeField] private GameObject player;
@@ -36,7 +37,7 @@ public class LevelGenerator : MonoBehaviour
             if (Random.Range(0f, 1f) < doublePegRate) {
                 do {
                     position = new Vector2(Random.Range(-xRange, xRange), currentY);
-                } while (Vector2.Distance(position, new Vector2(previouxX, currentY)) < 4);
+                } while (Vector2.Distance(position, new Vector2(previouxX, currentY)) < pegDistance);
                 Instantiate(peg, position, Quaternion.identity);
             }
             currentY += Random.Range(minYStep, maxYStep);

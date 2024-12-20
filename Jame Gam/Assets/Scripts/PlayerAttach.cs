@@ -27,9 +27,6 @@ public class PlayerAttach : MonoBehaviour
     [SerializeField] float grabTimeBuffer = 0.3f;
     float grabTimeLeft;
 
-    
-
-
     void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
@@ -42,7 +39,7 @@ public class PlayerAttach : MonoBehaviour
         playerMovement.lastPeg = startingPeg;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Peg"))
         {
@@ -87,7 +84,7 @@ public class PlayerAttach : MonoBehaviour
             AddGravityToPlayer(transform);
         }
 
-        //DrawTrajectory();
+        DrawTrajectory();
     }
 
     void AddGravityToPlayer(Transform player) {
@@ -142,7 +139,7 @@ public class PlayerAttach : MonoBehaviour
         }
 
         Vector2 startPosition = transform.position;
-        Vector2 startVelocity = transform.right * currentGravity / 20;
+        Vector2 startVelocity = transform.right * (Mathf.Sqrt(Mathf.Abs(currentGravity+0.0001f))/2) * (currentGravity/Mathf.Abs(currentGravity));
         Vector2 gravity = Physics2D.gravity;
 
         trajectoryLine.positionCount = trajectoryResolution;
