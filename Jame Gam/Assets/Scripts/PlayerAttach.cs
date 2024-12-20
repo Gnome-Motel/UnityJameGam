@@ -84,7 +84,7 @@ public class PlayerAttach : MonoBehaviour
             AddGravityToPlayer(transform);
         }
 
-        DrawTrajectory();
+        //DrawTrajectory();
     }
 
     void AddGravityToPlayer(Transform player) {

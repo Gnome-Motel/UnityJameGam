@@ -14,6 +14,8 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI score;
     [SerializeField] private float followSpeed;
+    [SerializeField] private float riseSpeed = 0.125f;
+    [SerializeField] private float riseSpeedIncreaseRate = 0.125f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +27,10 @@ public class CameraFollow : MonoBehaviour
         if (playerMovement.hooked && lowestY < transform.position.y) {
             lowestY = transform.position.y;
         }
-        score.text = MathF.Round(lowestY).ToString();
-        lowestY += Time.deltaTime / 8;
+        score.text = MathF.Round(lowestY*100).ToString();
+        lowestY += Time.deltaTime * riseSpeed;
+        riseSpeed += Time.deltaTime * riseSpeedIncreaseRate;
+
     }
 
     // Update is called once per frame

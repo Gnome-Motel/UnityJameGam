@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         {
             lives -= 1;
             if (lives <= 0) {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                FindObjectOfType<SceneTransition>().ReloadScene();
             }
             PlayerAttach attach = GetComponent<PlayerAttach>();
             attach.Attatch(peg.transform, false);
