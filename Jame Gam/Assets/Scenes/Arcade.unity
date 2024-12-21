@@ -238,59 +238,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1773586728423226137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &508369147
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 508369149}
-  - component: {fileID: 508369148}
-  m_Layer: 0
-  m_Name: LevelGenerator (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &508369148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 508369147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49753ef16f022431b9e919946cf29429, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pegCount: 50
-  minYStep: 1.5
-  maxYStep: 3
-  xRange: 8
-  doublePegRate: 0.5
-  pegDistance: 2
-  player: {fileID: 538506640063762313}
-  startingPeg: {fileID: 0}
-  peg: {fileID: 3583927878545962008, guid: 85ef9eca15b42fa46a70b1faf6bac512, type: 3}
---- !u!4 &508369149
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 508369147}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,8 +332,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1543131546}
-  - {fileID: 780827416}
   - {fileID: 1845688211}
+  - {fileID: 780827416}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
@@ -2438,59 +2385,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1150317692
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1150317694}
-  - component: {fileID: 1150317693}
-  m_Layer: 0
-  m_Name: LevelGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1150317693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1150317692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49753ef16f022431b9e919946cf29429, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pegCount: 50
-  minYStep: 1.5
-  maxYStep: 3
-  xRange: 8
-  doublePegRate: 0.5
-  pegDistance: 2
-  player: {fileID: 538506640063762313}
-  startingPeg: {fileID: 0}
-  peg: {fileID: 3583927878545962008, guid: 85ef9eca15b42fa46a70b1faf6bac512, type: 3}
---- !u!4 &1150317694
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1150317692}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1184351475 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3244157042607185225, guid: 85ef9eca15b42fa46a70b1faf6bac512, type: 3}
@@ -2553,9 +2447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '0
-
-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 217a656960b73446f935e997da9275d4, type: 2}
   m_sharedMaterial: {fileID: 6633640635868807279, guid: 217a656960b73446f935e997da9275d4, type: 2}
@@ -2677,6 +2569,11 @@ Transform:
   - {fileID: 571010413}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1508871396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3583927878545962008, guid: 85ef9eca15b42fa46a70b1faf6bac512, type: 3}
+  m_PrefabInstance: {fileID: 2011028445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1522002366
 GameObject:
   m_ObjectHideFlags: 0
@@ -2838,6 +2735,62 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 50, y: 50}
   m_EdgeRadius: 0
+--- !u!1 &1698706181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1698706183}
+  - component: {fileID: 1698706182}
+  m_Layer: 0
+  m_Name: LevelGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1698706182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698706181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49753ef16f022431b9e919946cf29429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minYStep: 1.5
+  maxYStep: 3
+  xRange: 8
+  doublePegRate: 0.9
+  triplePegRate: 0.5
+  quadPegRate: 0.1
+  minPegDistance: 2
+  pegCount: 5
+  yBuffer: 10
+  player: {fileID: 538506640063762313}
+  startingPeg: {fileID: 1508871396}
+  peg: {fileID: 3583927878545962008, guid: 85ef9eca15b42fa46a70b1faf6bac512, type: 3}
+--- !u!4 &1698706183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698706181}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1722051067
 GameObject:
   m_ObjectHideFlags: 0
@@ -2940,7 +2893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1845688211
 Transform:
   m_ObjectHideFlags: 0
@@ -3017,7 +2970,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2101056873
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1000
   m_Sprite: {fileID: -17610569, guid: e43b8bb256da2495da28bbc37385080e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3056,7 +3009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3244157042607185225, guid: 85ef9eca15b42fa46a70b1faf6bac512, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3244157042607185225, guid: 85ef9eca15b42fa46a70b1faf6bac512, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3271,6 +3224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastPeg: {fileID: 0}
+  highestPeg: {fileID: 0}
   hooked: 0
   maxLives: 3
   lives: 0
@@ -3365,7 +3319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ea71537c85ad4cd1b794c82aaf1957f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xLimit: 10
+  xLimit: 8
 --- !u!212 &7461330588841288805
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3622,7 +3576,6 @@ MonoBehaviour:
   trajectoryTimeStep: 0.1
   grabTimeBuffer: 0.3
   grabEffect: {fileID: 8038676378700768167, guid: 809c7b9c00b2446398f1f9a0742373b2, type: 3}
-  scoreEffect: {fileID: 63115761383479435, guid: 47d14affe45784582a66fb5dd43aead1, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3635,6 +3588,5 @@ SceneRoots:
   - {fileID: 73227821}
   - {fileID: 1722051069}
   - {fileID: 1522002368}
-  - {fileID: 1150317694}
-  - {fileID: 508369149}
+  - {fileID: 1698706183}
   - {fileID: 908263763}

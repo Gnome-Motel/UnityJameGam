@@ -38,13 +38,15 @@ public class CameraFollow : MonoBehaviour
             riseSpeed = Mathf.Sqrt(score) / riseSpeedIncreaseRate;
         }
 
-        if (displayScore < score) {
-            displayScore +=1;
+        if (displayScore + 25 <= score ) {
+            displayScore +=5;
+        } else if (displayScore < score) {
+            displayScore+=1;
         }
 
-        scoreText.text = displayScore.ToString();
-
-
+        if (displayScore > 0 ){
+            scoreText.text = displayScore.ToString();
+        }
     }
 
     // Update is called once per frame
