@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-
-    [Header("Y Movement")]
-    [SerializeField] private float minYStep;
-    [SerializeField] private float maxYStep;
+    [Header("Level Sections")]
+    [SerializeField] LevelSection[] levels;
+    private LevelSectionConfig currentLevel;
 
     [Header("X Movement")]
     [SerializeField] private float xRange;
-    [SerializeField] private float doublePegRate = 0.2f;
-    [SerializeField] private float triplePegRate = 0.2f;
-    [SerializeField] private float quadPegRate = 0.2f;
-
-    [SerializeField] private float minPegDistance = 4f;
 
     [Header("New Level Generation")]
     [SerializeField] private int pegCount;
@@ -30,17 +24,31 @@ public class LevelGenerator : MonoBehaviour
 
     void Start()
     {
-        GenerateLevel(transform.position.y, pegCount, xRange, minPegDistance, doublePegRate, triplePegRate, quadPegRate);
+        currentLevel = levels[0].settings;
+        GenerateLevel(transform.position.y, pegCount, xRange, currentLevel.minimumPegDistance, currentLevel.doublePegRate, currentLevel.triplePegRate, currentLevel.quadPegRate, currentLevel.minYStep, currentLevel.maxYStep);
     }
 
     void Update()
     {
         if (player.transform.position.y > transform.position.y - yBuffer) {
-            GenerateLevel(transform.position.y, pegCount, xRange, minPegDistance, doublePegRate, triplePegRate, quadPegRate);
+            for (int i = 0; i < levels.Length; i++)
+            {
+                if (transform.position.y < levels[i].startY) {
+                    continue;
+                }
+                
+                if (transform.position.y >= levels[i].endY){
+                    continue;
+                }
+
+                currentLevel = levels[i].settings;
+                break;
+            }
+            GenerateLevel(transform.position.y, pegCount, xRange, currentLevel.minimumPegDistance, currentLevel.doublePegRate, currentLevel.triplePegRate, currentLevel.quadPegRate, currentLevel.minYStep, currentLevel.maxYStep);
         }
     }
 
-    void GenerateLevel(float _startY, int _layerCount, float _layerSpread, float _minimumPegDistance, float _doublePegRate, float _triplePegRate, float _quadPegRate)
+    void GenerateLevel(float _startY, int _layerCount, float _layerSpread, float _minimumPegDistance, float _doublePegRate, float _triplePegRate, float _quadPegRate, float _minYStep, float _maxYStep)
     {
         float currentY = _startY;
         int i = 0;
@@ -75,7 +83,7 @@ public class LevelGenerator : MonoBehaviour
                     }
                 }
             }
-            currentY += Random.Range(minYStep, maxYStep);
+            currentY += Random.Range(_minYStep, _maxYStep);
             i += 1;
         }
         transform.position = new Vector2(0, currentY);

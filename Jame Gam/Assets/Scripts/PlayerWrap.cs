@@ -14,14 +14,14 @@ public class PlayerWrap : MonoBehaviour
     void Update()
     {
         if (transform.position.x < -xLimit) {
-            rb.velocity = new Vector2(Mathf.Abs(rb.velocity.x), rb.velocity.y);
-            //transform.position = new Vector2(xLimit, transform.position.y);
+            //rb.velocity = new Vector2(Mathf.Abs(rb.velocity.x), rb.velocity.y);
+            transform.position = new Vector2(xLimit, transform.position.y);
         }
 
         if (transform.position.x > xLimit) {
-            rb.velocity = new Vector2(-Mathf.Abs(rb.velocity.x), rb.velocity.y);
+            //rb.velocity = new Vector2(-Mathf.Abs(rb.velocity.x), rb.velocity.y);
 
-            //transform.position = new Vector2(-xLimit, transform.position.y);
+            transform.position = new Vector2(-xLimit, transform.position.y);
         }
     }
 }
