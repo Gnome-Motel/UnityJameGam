@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
             if (lives <= 0) {
                 FindObjectOfType<SceneTransition>().ReloadScene();
             }
+            FindObjectOfType<CameraFollow>().gameObject.GetComponent<Animator>().SetTrigger("shake");
             PlayerAttach attach = GetComponent<PlayerAttach>();
             attach.Attatch(peg.transform, false);
             attach.currentGravity = 0;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -26,6 +27,9 @@ public class PlayerAttach : MonoBehaviour
     [Header("Player Help")]
     [SerializeField] float grabTimeBuffer = 0.3f;
     float grabTimeLeft;
+
+    [Header("Effects")]
+    [SerializeField] private GameObject grabEffect;
 
     void Start()
     {
@@ -125,6 +129,7 @@ public class PlayerAttach : MonoBehaviour
         playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
         if (resetLives) {
             playerMovement.lives = playerMovement.maxLives;
+            Instantiate(grabEffect, transform.position, quaternion.identity);
         }
 
         playerMovement.lastPeg = peg;

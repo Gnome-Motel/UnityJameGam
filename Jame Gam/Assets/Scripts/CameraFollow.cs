@@ -17,17 +17,20 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float riseSpeed = 0.125f;
     [SerializeField] private float riseSpeedIncreaseRate = 0.125f;
 
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         playerMovement = target.GetComponent<PlayerMovement>();
+        anim = GetComponent<Animator>();
     }
 
     void Update() {
         if (playerMovement.hooked && lowestY < transform.position.y) {
             lowestY = transform.position.y;
+            score.text = MathF.Round(lowestY*100).ToString();
         }
-        score.text = MathF.Round(lowestY*100).ToString();
         lowestY += Time.deltaTime * riseSpeed;
         riseSpeed += Time.deltaTime * riseSpeedIncreaseRate;
 
@@ -43,9 +46,9 @@ public class CameraFollow : MonoBehaviour
 
         Vector3 pos;
         if (playerMovement.hooked) {
-            pos = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, y, followSpeed), target.position.z + offset.z);
+            pos = new Vector3(offset.x, Mathf.Lerp(transform.position.y, y, followSpeed), target.position.z + offset.z);
         } else {
-            pos = new Vector3(transform.position.x, y, target.position.z + offset.z);
+            pos = new Vector3(offset.x, y, target.position.z + offset.z);
         }   
         transform.position = pos;
     }
