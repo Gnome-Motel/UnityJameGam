@@ -129,7 +129,9 @@ public class PlayerAttach : MonoBehaviour
         playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
         if (resetLives) {
             playerMovement.lives = playerMovement.maxLives;
-            Instantiate(grabEffect, transform.position, quaternion.identity);
+            if (peg != playerMovement.lastPeg) {
+                Instantiate(grabEffect, transform.position, quaternion.identity);
+            }
         }
 
         playerMovement.lastPeg = peg;

@@ -12,10 +12,11 @@ public class CameraFollow : MonoBehaviour
     private float lowestY;
     private PlayerMovement playerMovement;
 
-    [SerializeField] private TextMeshProUGUI score;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    private int score;
     [SerializeField] private float followSpeed;
     [SerializeField] private float riseSpeed = 0.125f;
-    [SerializeField] private float riseSpeedIncreaseRate = 0.125f;
+    [SerializeField] private float riseSpeedIncreaseRate = 8;
 
     private Animator anim;
 
@@ -29,11 +30,11 @@ public class CameraFollow : MonoBehaviour
     void Update() {
         if (playerMovement.hooked && lowestY < transform.position.y) {
             lowestY = transform.position.y;
-            score.text = MathF.Round(lowestY*100).ToString();
+            score = (int)MathF.Round(lowestY*100, 0);
+            scoreText.text = score.ToString();
         }
         lowestY += Time.deltaTime * riseSpeed;
-        riseSpeed += Time.deltaTime * riseSpeedIncreaseRate;
-
+        riseSpeed = Mathf.Sqrt(score) / riseSpeedIncreaseRate;
     }
 
     // Update is called once per frame

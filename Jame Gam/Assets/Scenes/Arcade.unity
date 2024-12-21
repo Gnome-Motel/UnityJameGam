@@ -403,10 +403,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1773586728423226137}
   offset: {x: 0, y: 2, z: -10}
-  score: {fileID: 1349075799}
+  scoreText: {fileID: 1349075799}
   followSpeed: 0.01
   riseSpeed: 0.125
-  riseSpeedIncreaseRate: 0.001953125
+  riseSpeedIncreaseRate: 100
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
