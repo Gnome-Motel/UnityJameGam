@@ -38,7 +38,7 @@ public class PlayerAttach : MonoBehaviour
         trajectoryLine = GetComponent<LineRenderer>();
         gravitySpeed = initialGravitySpeed;
 
-
+        playerMovement.highestPeg = startingPeg;
         Attatch(startingPeg);
         playerMovement.lastPeg = startingPeg;
     }
@@ -119,6 +119,7 @@ public class PlayerAttach : MonoBehaviour
     //Function to hook a player to a peg. Locks individual movement, parents them, aligns player, and updates the most recent peg
     public void Attatch(Transform peg, bool resetLives = true)
     {   
+        
         float xMagnitude = playerRB.velocity.x * (1- (transform.rotation.z / 90));
         float yMagnitude = playerRB.velocity.y * (transform.rotation.z / 90);
 
@@ -133,9 +134,14 @@ public class PlayerAttach : MonoBehaviour
                 Instantiate(grabEffect, transform.position, quaternion.identity);
             }
         }
+        
 
         playerMovement.lastPeg = peg;
         playerMovement.hooked = true;
+
+        if (peg.position.y >= playerMovement.highestPeg.position.y) {
+            playerMovement.highestPeg = peg;
+        }
     }
 
     void DrawTrajectory(){

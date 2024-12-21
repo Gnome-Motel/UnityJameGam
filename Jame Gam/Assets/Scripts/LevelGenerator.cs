@@ -22,10 +22,9 @@ public class LevelGenerator : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] private GameObject peg;
 
-    private float currentY;
-
     void Start()
     {
+        float currentY = transform.position.y;
         int i = 0;
         while (i < pegCount){
             float previouxX;

@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     //new variables for PlayerAttatch to contact
     [HideInInspector] public Transform lastPeg = null;
+    [HideInInspector] public Transform highestPeg;
     [HideInInspector] public bool hooked = false;
 
     public int maxLives;
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other) {
         if (other.CompareTag("Respawn")){
-            Return(lastPeg);
+            Return(highestPeg);
             anim.SetTrigger("respawn");
         }
     }
