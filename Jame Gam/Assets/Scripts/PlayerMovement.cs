@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         {   
             GameObject camera = FindObjectOfType<CameraFollow>().gameObject;
             if (highestPeg.transform.position.y <= camera.GetComponent<CameraFollow>().deathPlane.position.y) {
-                FindObjectOfType<SceneTransition>().ReloadScene();
+                FindObjectOfType<SceneTransition>().LoadScene("DeathScreen");
             }
             camera.GetComponent<Animator>().SetTrigger("shake");
             PlayerAttach attach = GetComponent<PlayerAttach>();

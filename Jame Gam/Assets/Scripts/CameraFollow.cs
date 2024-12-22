@@ -14,34 +14,35 @@ public class CameraFollow : MonoBehaviour
     private PlayerMovement playerMovement;
 
     [SerializeField] private TextMeshProUGUI scoreText;
-    private int score;
     private int displayScore;
     [SerializeField] private float followSpeed;
     [SerializeField] private float riseSpeed = 0.125f;
     [SerializeField] private float riseSpeedIncreaseRate = 8;
 
     private Animator anim;
+    private ScoreManager scoreManager;
 
     // Start is called before the first frame update
     void Start()
     {
         playerMovement = target.GetComponent<PlayerMovement>();
+        scoreManager = FindObjectOfType<ScoreManager>();
         anim = GetComponent<Animator>();
     }
 
     void Update() {
         if (playerMovement.hooked && lowestY < transform.position.y) {
             lowestY = transform.position.y;
-            score = (int)MathF.Round(lowestY*100, 0);
+            scoreManager.SetScore((int)MathF.Round(lowestY*100, 0));
         }
         if (playerMovement.hooked) { 
             lowestY += Time.deltaTime * riseSpeed;
-            riseSpeed = Mathf.Sqrt(score) / riseSpeedIncreaseRate;
+            riseSpeed = Mathf.Sqrt(scoreManager.GetScore()) / riseSpeedIncreaseRate;
         }
 
-        if (displayScore + 25 <= score ) {
+        if (displayScore + 25 <= scoreManager.GetScore() ) {
             displayScore +=5;
-        } else if (displayScore < score) {
+        } else if (displayScore < scoreManager.GetScore()) {
             displayScore+=1;
         }
 
