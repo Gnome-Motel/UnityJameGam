@@ -9,6 +9,7 @@ public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] private Vector3 offset = new Vector3(0, 0, -10);
+    public Transform deathPlane;
     private float lowestY;
     private PlayerMovement playerMovement;
 

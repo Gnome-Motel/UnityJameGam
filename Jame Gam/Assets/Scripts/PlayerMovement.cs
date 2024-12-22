@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,14 +16,10 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public Transform highestPeg;
     [HideInInspector] public bool hooked = false;
 
-    public int maxLives;
-    [HideInInspector] public int lives;
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        lives = maxLives;
     }
 
     void OnTriggerStay2D(Collider2D other) {
@@ -38,12 +35,12 @@ public class PlayerMovement : MonoBehaviour
     public void Return(Transform peg)
     {
         if (peg != null) 
-        {
-            lives -= 1;
-            if (lives <= 0) {
+        {   
+            GameObject camera = FindObjectOfType<CameraFollow>().gameObject;
+            if (highestPeg.transform.position.y <= camera.GetComponent<CameraFollow>().deathPlane.position.y) {
                 FindObjectOfType<SceneTransition>().ReloadScene();
             }
-            FindObjectOfType<CameraFollow>().gameObject.GetComponent<Animator>().SetTrigger("shake");
+            camera.GetComponent<Animator>().SetTrigger("shake");
             PlayerAttach attach = GetComponent<PlayerAttach>();
             attach.Attatch(peg.transform, false);
             attach.currentGravity = 0;
