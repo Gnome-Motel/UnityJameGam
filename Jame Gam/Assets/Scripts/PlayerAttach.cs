@@ -94,6 +94,9 @@ public class PlayerAttach : MonoBehaviour
     void AddGravityToPlayer(Transform player) {
         float movement = Input.GetAxisRaw("Horizontal");
         currentGravity += movement * moveSpeed * Time.deltaTime;
+        if (Mathf.Abs(currentGravity) <= 5) {
+            currentGravity += movement * moveSpeed * 10 * Time.deltaTime;
+        }
 
         if (player.rotation.z > 0) {
             currentGravity -= gravitySpeed * Time.deltaTime;

@@ -7,10 +7,13 @@ public class SceneTransition : MonoBehaviour
     private Animator anim;
     [SerializeField] private float loadDelaySeconds;
 
+    [SerializeField] private GameObject canvas;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        canvas.SetActive(true);
     }
 
     public void LoadScene(string sceneName) {
