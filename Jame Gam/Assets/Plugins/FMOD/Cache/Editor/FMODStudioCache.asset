@@ -67,10 +67,10 @@ MonoBehaviour:
   Path: ../../../FMOD Studio/Jame_Gam_Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638705034357974442
+  lastModified: 638705092371351152
   FileSizes:
   - Name: Desktop
-    Value: 1006
+    Value: 1168
   Exists: 1
 --- !u!114 &-298664083948016454
 MonoBehaviour:
@@ -120,13 +120,38 @@ MonoBehaviour:
   - {fileID: -298664083948016454}
   - {fileID: 3040800513464479439}
   - {fileID: -8700486038523593911}
+  - {fileID: 7030706069958012208}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6061745318446389790}
   StringsBanks:
   - {fileID: -3241043304855441566}
-  cacheTime: 638705034367970440
+  cacheTime: 638705092372405162
   cacheVersion: 131622
+--- !u!114 &2561626108181371785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Attatch/Grab Speed
+  m_EditorClassIdentifier: 
+  Name: Grab Speed
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1104058768
+    data2: 2938810609
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &3040800513464479439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,10 +194,10 @@ MonoBehaviour:
   Path: ../../../FMOD Studio/Jame_Gam_Audio/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638705034367970440
+  lastModified: 638705092372405162
   FileSizes:
   - Name: Desktop
-    Value: 1386112
+    Value: 1392224
   Exists: 1
 --- !u!114 &6061745318446389790
 MonoBehaviour:
@@ -189,11 +214,39 @@ MonoBehaviour:
   Path: ../../../FMOD Studio/Jame_Gam_Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638705034357954372
+  lastModified: 638705092371305465
   FileSizes:
   - Name: Desktop
-    Value: 1036
+    Value: 1340
   Exists: 1
+--- !u!114 &7030706069958012208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Attatch
+  m_EditorClassIdentifier: 
+  Path: event:/Attatch
+  Guid:
+    Data1: 93581160
+    Data2: 1198897955
+    Data3: -391347316
+    Data4: -2096389619
+  Banks:
+  - {fileID: 4086592235834830875}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 2561626108181371785}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &7287647529469455539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +262,7 @@ MonoBehaviour:
   Path: ../../../FMOD Studio/Jame_Gam_Audio/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638704994846780785
+  lastModified: 638705070757014513
   FileSizes:
   - Name: Desktop
     Value: 284928

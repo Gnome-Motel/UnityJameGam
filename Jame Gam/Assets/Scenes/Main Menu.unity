@@ -188,6 +188,13 @@ MonoBehaviour:
       Data3: 849124756
       Data4: 826774713
     Path: event:/Game Wind
+  <pegSound>k__BackingField:
+    Guid:
+      Data1: 93581160
+      Data2: 1198897955
+      Data3: -391347316
+      Data4: -2096389619
+    Path: event:/Attatch
 --- !u!1 &79045673
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,8 +363,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1629487408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1128,7 +1135,7 @@ RectTransform:
   m_Father: {fileID: 1778484649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2094,13 +2101,13 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 0
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1938737873}
-        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
-        m_MethodName: SoundVolume
+      - m_Target: {fileID: 833167871}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: SFXUpdate
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2291,6 +2298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc50bc8dfa784844f865a59b7029da7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicVolume: 1
+  SFXVolume: 1
 --- !u!1 &912593922
 GameObject:
   m_ObjectHideFlags: 0
@@ -2643,8 +2652,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1433175353}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3687,13 +3696,13 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 0
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1938737873}
-        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
-        m_MethodName: MusicVolume
+      - m_Target: {fileID: 833167871}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: MusicUpdate
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3736,7 +3745,7 @@ RectTransform:
   m_Father: {fileID: 1338089642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

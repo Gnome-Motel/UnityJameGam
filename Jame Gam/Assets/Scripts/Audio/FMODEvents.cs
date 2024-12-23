@@ -13,6 +13,8 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header("Wind sounds")]
     [field: SerializeField] public EventReference windSound { get; private set; }
+    [field: Header("Peg sounds")]
+    [field: SerializeField] public EventReference pegSound { get; private set; }
 
 
     public static FMODEvents instance {  get; private set; }

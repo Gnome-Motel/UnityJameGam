@@ -15,8 +15,6 @@ public class MenuButtons : MonoBehaviour
     [SerializeField] Sprite checkNo;
     static bool hasPlayed = false;
 
-    static float musicVolume;
-    static float soundVolume;
     [SerializeField] GameObject camera;
 
     private EventInstance fireplaceS;
@@ -26,7 +24,8 @@ public class MenuButtons : MonoBehaviour
     {
         fireplaceS = AudioManager.instance.CreateEventInstance(FMODEvents.instance.fireplaceSound);
         pianoS = AudioManager.instance.CreateEventInstance(FMODEvents.instance.pianoSound);
-        UpdateSound();
+        fireplaceS.start();
+        pianoS.start();
     }
 
     public void Exit()
@@ -63,19 +62,7 @@ public class MenuButtons : MonoBehaviour
         }
     }
 
-    public void MusicVolume(float vol)
-    {
-        musicVolume = vol / 10f;
-        UpdateSound();
-    }
-
-    public void SoundVolume(float vol)
-    {
-        soundVolume = vol / 10f;
-        UpdateSound();
-    }
-
-    private void UpdateSound()
+    /*private void UpdateSound()
     {
         PLAYBACK_STATE stateP;
         PLAYBACK_STATE stateF;
@@ -89,5 +76,5 @@ public class MenuButtons : MonoBehaviour
         {
             fireplaceS.start();
         }
-    }
+    }*/
 }

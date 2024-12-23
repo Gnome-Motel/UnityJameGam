@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using FMOD.Studio;
 
 public class PlayerAttach : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class PlayerAttach : MonoBehaviour
     [Header("Effects")]
     [SerializeField] private GameObject grabEffect;
 
+    private EventInstance clickS;
+
     void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
@@ -41,6 +44,9 @@ public class PlayerAttach : MonoBehaviour
         playerMovement.highestPeg = startingPeg;
         Attatch(startingPeg);
         playerMovement.lastPeg = startingPeg;
+
+        AudioManager.instance.InitializeWind(FMODEvents.instance.windSound);
+        clickS = AudioManager.instance.CreateEventInstance(FMODEvents.instance.pegSound);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -82,9 +88,10 @@ public class PlayerAttach : MonoBehaviour
         if (grabTimeLeft > 0 && nearestPeg != null){
             if (transform.parent == null)
             {
-                    Attatch(nearestPeg.transform);
-                    grabTimeLeft = 0;
-                    return;
+                PegSound();
+                Attatch(nearestPeg.transform);
+                grabTimeLeft = 0;
+                return;
             }
             if (playerMovement.hooked)
             {
@@ -100,6 +107,7 @@ public class PlayerAttach : MonoBehaviour
         }
 
         //DrawTrajectory();
+        AudioManager.instance.SetWindVolume("Wind intensity", transform.position.y/100f);
     }
 
     void AddGravityToPlayer(Transform player) {
@@ -132,8 +140,7 @@ public class PlayerAttach : MonoBehaviour
 
     //Function to hook a player to a peg. Locks individual movement, parents them, aligns player, and updates the most recent peg
     public void Attatch(Transform peg, bool resetLives = true)
-    {   
-        
+    {
         float xMagnitude = playerRB.velocity.x * (1- (transform.rotation.z / 90));
         float yMagnitude = playerRB.velocity.y * (transform.rotation.z / 90);
 
@@ -178,4 +185,9 @@ public class PlayerAttach : MonoBehaviour
         }
     }
 
+    void PegSound()
+    {
+        clickS.setParameterByName("Grab Speed", playerRB.velocity.magnitude/10f);
+        clickS.start();
+    }
 }
