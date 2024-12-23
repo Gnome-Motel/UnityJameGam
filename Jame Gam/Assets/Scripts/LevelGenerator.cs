@@ -52,34 +52,29 @@ public class LevelGenerator : MonoBehaviour
     {
         float currentY = _startY;
         int i = 0;
+        List<Transform> allPegs = new List<Transform>();
         while (i < _layerCount)
         {
             List<Transform> pegs = new List<Transform>();
 
+            Transform currentPeg = PlacePeg(peg, pegs, _minimumPegDistance, _layerSpread, currentY).transform;
+            AddPeg(currentPeg, pegs, allPegs);
 
-            pegs.Add(PlacePeg(peg, pegs, _minimumPegDistance, _layerSpread, currentY).transform);
 
             if (Random.Range(0f, 1f) < _doublePegRate)
             {
                 GameObject doublePeg = PlacePeg(peg, pegs, _minimumPegDistance, _layerSpread, currentY);
-                if (doublePeg != null)
-                {
-                    pegs.Add(doublePeg.transform);
-                }
+                AddPeg(doublePeg.transform, pegs, allPegs);
+
                 if (Random.Range(0f, 1f) < _triplePegRate)
                 {
                     GameObject triplePeg = PlacePeg(peg, pegs, _minimumPegDistance, _layerSpread, currentY);
-                    if (triplePeg != null)
-                    {
-                        pegs.Add(triplePeg.transform);
-                    }
+                    AddPeg(triplePeg.transform, pegs, allPegs);
+
                     if (Random.Range(0f, 1f) < _quadPegRate)
                     {
                         GameObject quadPeg = PlacePeg(peg, pegs, _minimumPegDistance, _layerSpread, currentY);
-                        if (quadPeg != null)
-                        {
-                            pegs.Add(quadPeg.transform);
-                        }
+                        AddPeg(quadPeg.transform, pegs, allPegs);
                     }
                 }
             }
@@ -87,6 +82,14 @@ public class LevelGenerator : MonoBehaviour
             i += 1;
         }
         transform.position = new Vector2(0, currentY);
+    }
+
+    void AddPeg(Transform currentPeg, List<Transform> layerPegs, List<Transform> allPegs) {
+        if (currentPeg != null)
+        {
+            layerPegs.Add(currentPeg);
+            allPegs.Add(currentPeg);
+        }
     }
 
     GameObject PlacePeg(

@@ -8,4 +8,5 @@ public class LevelSection
     public float startY;
     public float endY;
     public LevelSectionConfig settings;
+    public List<NPCData> NPCs = new List<NPCData>();
 }

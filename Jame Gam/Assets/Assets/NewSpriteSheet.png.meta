@@ -173,7 +173,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,6 +181,153 @@ TextureImporter:
       bones: []
       spriteID: d511e87c85fee4658b5296fe2a1bc0be
       internalID: 1799678707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 166
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9050e4c8479a2480dbf9f2f70d8bf9c1
+      internalID: 1768408096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 166
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c74f11f0f2cf4b5b85c490f22a97e83
+      internalID: -1687743701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 156
+        width: 19
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a09302d4ce14806a196440687952d7
+      internalID: -783707514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bcf40ed42df54f17957717a20188124
+      internalID: -491006516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a542ff93e077d4c969833c6f817d95a7
+      internalID: 307682602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06a1e1b90f9ca444381cc51aeda491ac
+      internalID: 1539520617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b58744e6a4a04d90a96dcf545203801
+      internalID: -1580704147
       vertices: []
       indices: 
       edges: []
@@ -199,6 +346,13 @@ TextureImporter:
       NewSpriteSheet_0: -927896984
       NewSpriteSheet_1: 138258493
       NewSpriteSheet_2: 1799678707
+      NewSpriteSheet_3: 1768408096
+      NewSpriteSheet_4: -1687743701
+      NewSpriteSheet_5: -783707514
+      NewSpriteSheet_6: -491006516
+      NewSpriteSheet_7: 307682602
+      NewSpriteSheet_8: 1539520617
+      NewSpriteSheet_9: -1580704147
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

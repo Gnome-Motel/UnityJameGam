@@ -43,6 +43,17 @@ public class PlayerAttach : MonoBehaviour
         playerMovement.lastPeg = startingPeg;
     }
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("NPC")) {
+            NPC npc = other.GetComponent<NPC>();
+            if (npc.collected) {
+                return;
+            }
+            npc.Collect();
+            Instantiate(grabEffect, npc.gameObject.transform.position, quaternion.identity);
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Peg"))
