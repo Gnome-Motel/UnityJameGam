@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using FMOD.Studio;
 
 public class MenuButtons : MonoBehaviour
 {
@@ -17,11 +18,15 @@ public class MenuButtons : MonoBehaviour
     static float musicVolume;
     static float soundVolume;
     [SerializeField] GameObject camera;
-    AudioSource[] audios;
+
+    private EventInstance fireplaceS;
+    private EventInstance pianoS;
 
     private void Start()
     {
-        audios = camera.GetComponents<AudioSource>();
+        fireplaceS = AudioManager.instance.CreateEventInstance(FMODEvents.instance.fireplaceSound);
+        pianoS = AudioManager.instance.CreateEventInstance(FMODEvents.instance.pianoSound);
+        UpdateSound();
     }
 
     public void Exit()
@@ -61,12 +66,28 @@ public class MenuButtons : MonoBehaviour
     public void MusicVolume(float vol)
     {
         musicVolume = vol / 10f;
-        audios[0].volume = musicVolume;
+        UpdateSound();
     }
 
     public void SoundVolume(float vol)
     {
         soundVolume = vol / 10f;
-        audios[1].volume = soundVolume;
+        UpdateSound();
+    }
+
+    private void UpdateSound()
+    {
+        PLAYBACK_STATE stateP;
+        PLAYBACK_STATE stateF;
+        pianoS.getPlaybackState(out stateP);
+        fireplaceS.getPlaybackState(out stateF);
+        if (stateP.Equals(PLAYBACK_STATE.STOPPED))
+        {
+            pianoS.start();
+        }
+        if (stateF.Equals(PLAYBACK_STATE.STOPPED))
+        {
+            fireplaceS.start();
+        }
     }
 }
