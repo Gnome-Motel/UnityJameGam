@@ -195,6 +195,20 @@ MonoBehaviour:
       Data3: -391347316
       Data4: -2096389619
     Path: event:/Attatch
+  <fallSound>k__BackingField:
+    Guid:
+      Data1: 753073841
+      Data2: 1183807221
+      Data3: -502704463
+      Data4: 2124050969
+    Path: event:/Fall
+  <gameoverSound>k__BackingField:
+    Guid:
+      Data1: -403847551
+      Data2: 1125915337
+      Data3: -1389150310
+      Data4: -271682345
+    Path: event:/Fail
 --- !u!1 &79045673
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +863,7 @@ RectTransform:
   m_GameObject: {fileID: 300335775}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 45.7774, y: 45.777397, z: 9.155479}
+  m_LocalScale: {x: 27.974112, y: 27.97411, z: 5.594822}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 202920486}

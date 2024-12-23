@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FMOD.Studio;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -16,10 +17,15 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public Transform highestPeg;
     [HideInInspector] public bool hooked = false;
 
+    EventInstance fallS;
+    EventInstance gameoverS;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        fallS = AudioManager.instance.CreateEventInstance(FMODEvents.instance.fallSound);
+        gameoverS = AudioManager.instance.CreateEventInstance(FMODEvents.instance.gameoverSound);
     }
 
     void OnTriggerStay2D(Collider2D other) {
@@ -29,16 +35,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //function copied and modified from playerAttatch's Attatch
-    //returns player to the last peg they were at
-    //As of now, triggers on input down 'f', could be expanded to upon death as well.
     public void Return(Transform peg)
     {
+
         if (peg != null) 
         {   
             GameObject camera = FindObjectOfType<CameraFollow>().gameObject;
             if (highestPeg.transform.position.y <= camera.GetComponent<CameraFollow>().deathPlane.position.y) {
+                gameoverS.start();
                 FindObjectOfType<SceneTransition>().LoadScene("DeathScreen");
+            }
+            else
+            {
+                fallS.start();
             }
             camera.GetComponent<Animator>().SetTrigger("shake");
             PlayerAttach attach = GetComponent<PlayerAttach>();
