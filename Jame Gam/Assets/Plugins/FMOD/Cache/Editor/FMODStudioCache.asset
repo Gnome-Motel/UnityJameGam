@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7675053480080182298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sad Ocarina
+  m_EditorClassIdentifier: 
+  Path: event:/Sad Ocarina
+  Guid:
+    Data1: -288476768
+    Data2: 1291227955
+    Data3: 1566176143
+    Data4: 1520393756
+  Banks:
+  - {fileID: 5185193354678778654}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6262647880792250941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,6 +54,87 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 60969
+--- !u!114 &-5646970368586362079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sad Trumpet
+  m_EditorClassIdentifier: 
+  Path: event:/Sad Trumpet
+  Guid:
+    Data1: 93699357
+    Data2: 1164036682
+    Data3: -1104127350
+    Data4: -1456663044
+  Banks:
+  - {fileID: 5185193354678778654}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5022434989006655561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Love Song
+  m_EditorClassIdentifier: 
+  Path: event:/Love Song
+  Guid:
+    Data1: 1925368687
+    Data2: 1214411487
+    Data3: 605443493
+    Data4: -1498235893
+  Banks:
+  - {fileID: -3956889725506497315}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4949847302276133334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Happy Strings
+  m_EditorClassIdentifier: 
+  Path: event:/Happy Strings
+  Guid:
+    Data1: -1693303039
+    Data2: 1143816798
+    Data3: -1324925017
+    Data4: 1484917344
+  Banks:
+  - {fileID: 5185193354678778654}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4719294577589500861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +190,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 53864
+--- !u!114 &-4364190705454023965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Happy Steel Drums
+  m_EditorClassIdentifier: 
+  Path: event:/Happy Steel Drums
+  Guid:
+    Data1: -857550748
+    Data2: 1239386031
+    Data3: 1763039403
+    Data4: -869303842
+  Banks:
+  - {fileID: 5185193354678778654}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-3956889725506497315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,11 +232,92 @@ MonoBehaviour:
   Path: ../../FMODProject/Jame_Gam_Audio/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638705718318928416
+  lastModified: 638706437470968916
   FileSizes:
   - Name: Desktop
-    Value: 284928
+    Value: 2171808
   Exists: 1
+--- !u!114 &-3809881897465971364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sad Violin
+  m_EditorClassIdentifier: 
+  Path: event:/Sad Violin
+  Guid:
+    Data1: 1428736771
+    Data2: 1179944532
+    Data3: 128867212
+    Data4: 1322159226
+  Banks:
+  - {fileID: 5185193354678778654}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3774480086292807900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Happy Kalimba
+  m_EditorClassIdentifier: 
+  Path: event:/Happy Kalimba
+  Guid:
+    Data1: -1535112317
+    Data2: 1325236198
+    Data3: 38143146
+    Data4: -1526981396
+  Banks:
+  - {fileID: 5185193354678778654}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3471608861642292752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sad Strings
+  m_EditorClassIdentifier: 
+  Path: event:/Sad Strings
+  Guid:
+    Data1: -2132546717
+    Data2: 1233847180
+    Data3: -1600174924
+    Data4: 964677916
+  Banks:
+  - {fileID: 5185193354678778654}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-3234546182003812718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +448,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-372551436187169450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sad Kalimba
+  m_EditorClassIdentifier: 
+  Path: event:/Sad Kalimba
+  Guid:
+    Data1: 113751495
+    Data2: 1159534573
+    Data3: -1644073293
+    Data4: 1944102495
+  Banks:
+  - {fileID: 5185193354678778654}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,13 +499,82 @@ MonoBehaviour:
   - {fileID: -3041911987117334677}
   - {fileID: -430114316318744843}
   - {fileID: -6262647880792250941}
+  - {fileID: -5022434989006655561}
+  - {fileID: 2804421150299769395}
+  - {fileID: 2704043899966890513}
+  - {fileID: -4949847302276133334}
+  - {fileID: -3809881897465971364}
+  - {fileID: 8081026168457281232}
+  - {fileID: -5646970368586362079}
+  - {fileID: 4618030896210053383}
+  - {fileID: 3579906224785971839}
+  - {fileID: -3471608861642292752}
+  - {fileID: -4364190705454023965}
+  - {fileID: 7608203447204382556}
+  - {fileID: -3774480086292807900}
+  - {fileID: -7675053480080182298}
+  - {fileID: -372551436187169450}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2979936606696353550}
   StringsBanks:
   - {fileID: 5358609141054113537}
-  cacheTime: 638705718328242315
+  cacheTime: 638706437470968916
   cacheVersion: 131622
+--- !u!114 &2704043899966890513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Level music
+  m_EditorClassIdentifier: 
+  Path: event:/Level music
+  Guid:
+    Data1: 1204105169
+    Data2: 1140746410
+    Data3: 957137807
+    Data4: 1984785249
+  Banks:
+  - {fileID: -3956889725506497315}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 127100
+--- !u!114 &2804421150299769395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Death sound
+  m_EditorClassIdentifier: 
+  Path: event:/Death sound
+  Guid:
+    Data1: -1966838413
+    Data2: 1137267247
+    Data3: 754232255
+    Data4: 772794653
+  Banks:
+  - {fileID: -3956889725506497315}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4000
 --- !u!114 &2979936606696353550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,11 +590,65 @@ MonoBehaviour:
   Path: ../../FMODProject/Jame_Gam_Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638705718313081932
+  lastModified: 638706430083147602
   FileSizes:
   - Name: Desktop
     Value: 1340
   Exists: 1
+--- !u!114 &3579906224785971839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Happy Ocarina
+  m_EditorClassIdentifier: 
+  Path: event:/Happy Ocarina
+  Guid:
+    Data1: -229872306
+    Data2: 1154734350
+    Data3: -1062894964
+    Data4: -446428891
+  Banks:
+  - {fileID: 5185193354678778654}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4618030896210053383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Happy Trumpet
+  m_EditorClassIdentifier: 
+  Path: event:/Happy Trumpet
+  Guid:
+    Data1: -359947973
+    Data2: 1161949610
+    Data3: -81683030
+    Data4: -893206591
+  Banks:
+  - {fileID: 5185193354678778654}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &5185193354678778654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,10 +664,10 @@ MonoBehaviour:
   Path: ../../FMODProject/Jame_Gam_Audio/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638705718328242315
+  lastModified: 638706430105670045
   FileSizes:
   - Name: Desktop
-    Value: 1437216
+    Value: 1664960
   Exists: 1
 --- !u!114 &5358609141054113537
 MonoBehaviour:
@@ -318,8 +684,62 @@ MonoBehaviour:
   Path: ../../FMODProject/Jame_Gam_Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638705718313089743
+  lastModified: 638706430083209024
   FileSizes:
   - Name: Desktop
-    Value: 1248
+    Value: 1898
   Exists: 1
+--- !u!114 &7608203447204382556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Happy Violin
+  m_EditorClassIdentifier: 
+  Path: event:/Happy Violin
+  Guid:
+    Data1: 1705767533
+    Data2: 1125495215
+    Data3: 1500416953
+    Data4: -1297395936
+  Banks:
+  - {fileID: 5185193354678778654}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8081026168457281232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sad Steel Drums
+  m_EditorClassIdentifier: 
+  Path: event:/Sad Steel Drums
+  Guid:
+    Data1: -468677365
+    Data2: 1186233509
+    Data3: -1918963013
+    Data4: -2030172228
+  Banks:
+  - {fileID: 5185193354678778654}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
