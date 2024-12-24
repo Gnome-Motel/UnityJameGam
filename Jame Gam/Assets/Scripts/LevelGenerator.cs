@@ -67,7 +67,7 @@ public class LevelGenerator : MonoBehaviour
                 AddPeg(doublePeg.transform, pegs, allPegs);
 
                 if (Random.Range(0f, 1f) < _triplePegRate)
-                {
+                {   
                     GameObject triplePeg = PlacePeg(peg, pegs, _minimumPegDistance, _layerSpread, currentY);
                     AddPeg(triplePeg.transform, pegs, allPegs);
 

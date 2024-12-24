@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     EventInstance fallS;
     EventInstance gameoverS;
 
+    public int presentCount = 0;
+    public int presentsDelivered = 0;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
