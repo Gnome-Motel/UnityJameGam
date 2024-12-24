@@ -40,7 +40,7 @@ public class MenuButtons : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("Opening");
+            SceneManager.LoadScene("CutScene");
         }
     }
     public void Endless()

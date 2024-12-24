@@ -12,10 +12,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
 
-    //new variables for PlayerAttatch to contact
     [HideInInspector] public Transform lastPeg = null;
     [HideInInspector] public Transform highestPeg;
     [HideInInspector] public bool hooked = false;
+
+    [SerializeField] public bool story;
+    [SerializeField] public StoryProgress prog;
 
     EventInstance fallS;
     EventInstance gameoverS;
@@ -54,9 +56,12 @@ public class PlayerMovement : MonoBehaviour
             attach.Attatch(peg.transform, false);
             attach.currentGravity = 0;
             rb.velocity = new Vector2(0f, 0f);
-            if (Random.Range(0f, 1f) > 0.5){
+            if (Random.Range(0f, 1f) > 0.5)
+            {
                 transform.rotation = Quaternion.Euler(0, 0, 45);
-            } else {
+            }
+            else
+            {
                 transform.rotation = Quaternion.Euler(0, 0, -45);
             }
             transform.position = peg.position;

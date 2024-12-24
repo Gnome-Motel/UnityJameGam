@@ -6,6 +6,6 @@ public class CutScene : MonoBehaviour
 {
 
     public void LoadGameScene() {
-        FindObjectOfType<SceneTransition>().LoadScene("Arcade");
+        FindObjectOfType<SceneTransition>().LoadScene("Story Mode");
     }
 }

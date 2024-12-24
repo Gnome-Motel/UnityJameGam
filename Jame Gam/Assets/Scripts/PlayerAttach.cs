@@ -12,7 +12,7 @@ public class PlayerAttach : MonoBehaviour
     private PlayerMovement playerMovement;
 
     [SerializeField] private Transform startingPeg;
-    [SerializeField] private bool story;
+    [SerializeField] public bool story;
     [SerializeField] public StoryProgress prog;
 
     [Header("Hooked Movement")]
