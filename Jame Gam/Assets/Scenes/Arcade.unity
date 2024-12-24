@@ -308,38 +308,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &311219996
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 311219997}
-  m_Layer: 0
-  m_Name: ManagerManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &311219997
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311219996}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 187.72156, y: 176.4964, z: -2.1451387}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2145391866}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +413,7 @@ MonoBehaviour:
   target: {fileID: 1773586728423226137}
   offset: {x: 0, y: 2, z: -10}
   deathPlane: {fileID: 1827936093}
+  lowestY: 0
   scoreText: {fileID: 1349075799}
   followSpeed: 0.01
   riseSpeed: 0.125
@@ -15789,11 +15758,11 @@ Transform:
   m_GameObject: {fileID: 2145391864}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -187.72156, y: -176.4964, z: 2.1451387}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 311219997}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &538506640063762313
 GameObject:
@@ -15968,6 +15937,8 @@ MonoBehaviour:
   lastPeg: {fileID: 0}
   highestPeg: {fileID: 0}
   hooked: 0
+  story: 0
+  prog: {fileID: 0}
 --- !u!212 &7069533510657417814
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16308,6 +16279,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingPeg: {fileID: 1184351475}
+  story: 0
+  prog: {fileID: 0}
   initialGravitySpeed: 1600
   damping: 0.2
   moveSpeed: 500
@@ -16329,4 +16302,4 @@ SceneRoots:
   - {fileID: 944990691}
   - {fileID: 1106614848}
   - {fileID: 121280373}
-  - {fileID: 311219997}
+  - {fileID: 2145391866}

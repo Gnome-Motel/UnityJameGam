@@ -27,7 +27,7 @@ public class CameraFollow : MonoBehaviour
     {
         playerMovement = target.GetComponent<PlayerMovement>();
         playerAttach = target.GetComponent<PlayerAttach>();
-        if (playerAttach.story)
+        if (!playerAttach.story)
         {
             scoreManager = FindObjectOfType<ScoreManager>();
         }
