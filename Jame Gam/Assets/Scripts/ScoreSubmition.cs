@@ -8,8 +8,6 @@ using Dan.Main;
 public class ScoreSubmition : MonoBehaviour
 {
 
-    // Public Key: 
-    // Private Key: 0d580f1d6a1ee6122ec5abb2dcbf9c4a62cf7238b764c7af15e5b8b5ea00102572be03e0e1ce5cb901d15a209be46cffdfb591691dce7da6173d86b2d9c769b87cc62f5917497669d586f3427b0212eacce0afded8673b4bae454576b3807fc0b3d54297b919ec37f3865f1ee914b4126930b2139ef872088323a4aca577ce94
     [Header("Score Display")]
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private string scoreTextDisplay = "Your Score: ";
@@ -39,6 +37,10 @@ public class ScoreSubmition : MonoBehaviour
 
         submitScoreButton.interactable = false;
         Destroy(scoreManager.gameObject);
+    }
+
+    public void ResetScore() {
+        Destroy(gameObject);
     }
 
     public void GetLeaderboard() {

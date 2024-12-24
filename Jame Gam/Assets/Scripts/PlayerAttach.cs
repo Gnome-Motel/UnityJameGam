@@ -142,9 +142,9 @@ public class PlayerAttach : MonoBehaviour
     }
 
     //Function to hook a player to a peg. Locks individual movement, parents them, aligns player, and updates the most recent peg
-    public void Attatch(Transform peg, bool resetLives = true)
+    public void Attatch(Transform peg, bool resetLives = true, bool resetLevel = true)
     {
-        if (story)
+        if (story && resetLevel)
         {
             prog.UpdateLevel(peg);
         }
@@ -153,6 +153,7 @@ public class PlayerAttach : MonoBehaviour
 
         currentGravity = 2 * ((playerRB.velocity.x * xMagnitude) + (playerRB.velocity.y * yMagnitude));
 
+        Debug.Log("Attached Peg: " + peg.name);
         transform.parent = peg;
         transform.position = peg.position;
         playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
