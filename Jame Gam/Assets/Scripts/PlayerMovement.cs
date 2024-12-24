@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     public int presentCount = 0;
     public int presentsDelivered = 0;
+    public bool paused = false;
 
     void Start()
     {
@@ -58,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
                     FindObjectOfType<GameOverScreen>().DisplayScreen();
                 }
             }
-            else
+            else if (!paused)
             {
                 fallS.start();
             }

@@ -12,6 +12,7 @@ public class GameOverScreen : MonoBehaviour
 
     public void DisplayScreen() {
         canvas.SetActive(true);
+        FindObjectOfType<PlayerMovement>().paused = true;
     }
 
     public void HideScreen() {
@@ -20,6 +21,7 @@ public class GameOverScreen : MonoBehaviour
 
     public void Respawn() {
         HideScreen();
+        FindObjectOfType<PlayerMovement>().paused = false;
         FindObjectOfType<StoryProgress>().GameOver();
     }
 }

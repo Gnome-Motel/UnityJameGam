@@ -17,6 +17,8 @@ public class NPC_Interaction : MonoBehaviour
 
     [SerializeField] Sprite happySprite;
 
+    [SerializeField] private TextMeshProUGUI textDisplay;
+
     private void Start()
     {
         spr = GetComponent<SpriteRenderer>();
@@ -36,12 +38,14 @@ public class NPC_Interaction : MonoBehaviour
                 playerMovement.presentCount--;
                 playerMovement.presentsDelivered++;
                 spr.sprite = happySprite;
+                textDisplay.text = happyText;
                 hasSaidHappy=true;
             }
             else if (!hasSaidSad)
             {
                 Debug.Log("Sadness");
                 hasSaidSad=true;
+                textDisplay.text = unhappyText;
             }
         }
     }
