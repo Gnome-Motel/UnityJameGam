@@ -204,11 +204,102 @@ MonoBehaviour:
     Path: event:/Fall
   <gameoverSound>k__BackingField:
     Guid:
-      Data1: -403847551
-      Data2: 1125915337
-      Data3: -1389150310
-      Data4: -271682345
-    Path: event:/Fail
+      Data1: -1966838413
+      Data2: 1137267247
+      Data3: 754232255
+      Data4: 772794653
+    Path: event:/Death sound
+  <OcaHSound>k__BackingField:
+    Guid:
+      Data1: -229872306
+      Data2: 1154734350
+      Data3: -1062894964
+      Data4: -446428891
+    Path: event:/Happy Ocarina
+  <OcaSSound>k__BackingField:
+    Guid:
+      Data1: -288476768
+      Data2: 1291227955
+      Data3: 1566176143
+      Data4: 1520393756
+    Path: event:/Sad Ocarina
+  <KalHSound>k__BackingField:
+    Guid:
+      Data1: -1535112317
+      Data2: 1325236198
+      Data3: 38143146
+      Data4: -1526981396
+    Path: event:/Happy Kalimba
+  <KalSSound>k__BackingField:
+    Guid:
+      Data1: 113751495
+      Data2: 1159534573
+      Data3: -1644073293
+      Data4: 1944102495
+    Path: event:/Sad Kalimba
+  <DrumHSound>k__BackingField:
+    Guid:
+      Data1: -857550748
+      Data2: 1239386031
+      Data3: 1763039403
+      Data4: -869303842
+    Path: event:/Happy Steel Drums
+  <DrumSSound>k__BackingField:
+    Guid:
+      Data1: -468677365
+      Data2: 1186233509
+      Data3: -1918963013
+      Data4: -2030172228
+    Path: event:/Sad Steel Drums
+  <TruHSound>k__BackingField:
+    Guid:
+      Data1: -359947973
+      Data2: 1161949610
+      Data3: -81683030
+      Data4: -893206591
+    Path: event:/Happy Trumpet
+  <TruSSound>k__BackingField:
+    Guid:
+      Data1: 93699357
+      Data2: 1164036682
+      Data3: -1104127350
+      Data4: -1456663044
+    Path: event:/Sad Trumpet
+  <StrHSound>k__BackingField:
+    Guid:
+      Data1: -1693303039
+      Data2: 1143816798
+      Data3: -1324925017
+      Data4: 1484917344
+    Path: event:/Happy Strings
+  <StrSSound>k__BackingField:
+    Guid:
+      Data1: -2132546717
+      Data2: 1233847180
+      Data3: -1600174924
+      Data4: 964677916
+    Path: event:/Sad Strings
+  <VioHSound>k__BackingField:
+    Guid:
+      Data1: 1705767533
+      Data2: 1125495215
+      Data3: 1500416953
+      Data4: -1297395936
+    Path: event:/Happy Violin
+  <VioSSound>k__BackingField:
+    Guid:
+      Data1: 1428736771
+      Data2: 1179944532
+      Data3: 128867212
+      Data4: 1322159226
+    Path: event:/Sad Violin
+  <loveSound>k__BackingField:
+    Guid:
+      Data1: 1925368687
+      Data2: 1214411487
+      Data3: 605443493
+      Data4: -1498235893
+    Path: event:/Love Song
 --- !u!1 &79045673
 GameObject:
   m_ObjectHideFlags: 0

@@ -1516,6 +1516,20 @@ MonoBehaviour:
   happyText: "Thank you, stranger! Now, please excuse me, I have some reindeer games
     I\u2019ve been missing out on. "
   unhappyText: I'm still missing out on the reineer games...
+  happySound:
+    Guid:
+      Data1: -857550748
+      Data2: 1239386031
+      Data3: 1763039403
+      Data4: -869303842
+    Path: event:/Happy Steel Drums
+  sadSound:
+    Guid:
+      Data1: -468677365
+      Data2: 1186233509
+      Data3: -1918963013
+      Data4: -2030172228
+    Path: event:/Sad Steel Drums
   happySprite: {fileID: 1524464283, guid: 09613defb4db54ea9ba1d9142e0090a9, type: 3}
   textDisplay: {fileID: 87168898}
 --- !u!212 &104022358
@@ -24990,6 +25004,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happyText: Woah, thank you stranger? How long have I been out?
   unhappyText: I was hoping for a new hat...
+  happySound:
+    Guid:
+      Data1: -229872306
+      Data2: 1154734350
+      Data3: -1062894964
+      Data4: -446428891
+    Path: event:/Happy Ocarina
+  sadSound:
+    Guid:
+      Data1: -288476768
+      Data2: 1291227955
+      Data3: 1566176143
+      Data4: 1520393756
+    Path: event:/Sad Ocarina
   happySprite: {fileID: -1508373192, guid: 09613defb4db54ea9ba1d9142e0090a9, type: 3}
   textDisplay: {fileID: 533940383}
 --- !u!212 &635688653
@@ -32919,6 +32947,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happyText: Thank you, stranger! Have you seen a jolly old elf anywhere around recently?
   unhappyText: I seem to have lost santa...
+  happySound:
+    Guid:
+      Data1: 1705767533
+      Data2: 1125495215
+      Data3: 1500416953
+      Data4: -1297395936
+    Path: event:/Happy Violin
+  sadSound:
+    Guid:
+      Data1: 1428736771
+      Data2: 1179944532
+      Data3: 128867212
+      Data4: 1322159226
+    Path: event:/Sad Violin
   happySprite: {fileID: -796075319, guid: 09613defb4db54ea9ba1d9142e0090a9, type: 3}
   textDisplay: {fileID: 344061495}
 --- !u!212 &740592012
@@ -94609,6 +94651,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happyText: Thank you, stranger! Meow I can finally have a merry christmas!
   unhappyText: HISS...
+  happySound:
+    Guid:
+      Data1: -1693303039
+      Data2: 1143816798
+      Data3: -1324925017
+      Data4: 1484917344
+    Path: event:/Happy Strings
+  sadSound:
+    Guid:
+      Data1: -2132546717
+      Data2: 1233847180
+      Data3: -1600174924
+      Data4: 964677916
+    Path: event:/Sad Strings
   happySprite: {fileID: 2066868973, guid: 09613defb4db54ea9ba1d9142e0090a9, type: 3}
   textDisplay: {fileID: 376757307}
 --- !u!212 &1503489930
@@ -128683,6 +128739,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happyText: Thank you, stranger! What a lovely housewarming present!
   unhappyText: Without a housewarming gift, this house will be cold until summer...
+  happySound:
+    Guid:
+      Data1: -359947973
+      Data2: 1161949610
+      Data3: -81683030
+      Data4: -893206591
+    Path: event:/Happy Trumpet
+  sadSound:
+    Guid:
+      Data1: 93699357
+      Data2: 1164036682
+      Data3: -1104127350
+      Data4: -1456663044
+    Path: event:/Sad Trumpet
   happySprite: {fileID: 501728165, guid: 09613defb4db54ea9ba1d9142e0090a9, type: 3}
   textDisplay: {fileID: 177205958}
 --- !u!212 &2106875048
@@ -129103,6 +129173,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happyText: Thank you, stranger!
   unhappyText: No ones been playing new games recently...
+  happySound:
+    Guid:
+      Data1: -1535112317
+      Data2: 1325236198
+      Data3: 38143146
+      Data4: -1526981396
+    Path: event:/Happy Kalimba
+  sadSound:
+    Guid:
+      Data1: 113751495
+      Data2: 1159534573
+      Data3: -1644073293
+      Data4: 1944102495
+    Path: event:/Sad Kalimba
   happySprite: {fileID: 2111969871, guid: 09613defb4db54ea9ba1d9142e0090a9, type: 3}
   textDisplay: {fileID: 1810215693}
 --- !u!212 &2139748326

@@ -36,6 +36,7 @@ public class PlayerAttach : MonoBehaviour
 
 
     private EventInstance clickS;
+    private EventInstance musicS;
 
     void Start()
     {
@@ -50,6 +51,8 @@ public class PlayerAttach : MonoBehaviour
 
         AudioManager.instance.InitializeWind(FMODEvents.instance.windSound);
         clickS = AudioManager.instance.CreateEventInstance(FMODEvents.instance.pegSound);
+        musicS = AudioManager.instance.CreateEventInstance(FMODEvents.instance.PlayingSound);
+        musicS.start();
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

@@ -34,17 +34,20 @@ public class MenuButtons : MonoBehaviour
     }
     public void StoryMode()
     {
+        StopMusic();
         if (hasPlayed)
         {
             SceneManager.LoadScene("Story Mode");
         }
         else
         {
+
             SceneManager.LoadScene("CutScene");
         }
     }
     public void Endless()
     {
+        StopMusic();
         SceneManager.LoadScene("Arcade");
     }
 
@@ -77,4 +80,10 @@ public class MenuButtons : MonoBehaviour
             fireplaceS.start();
         }
     }*/
+
+    private void StopMusic()
+    {
+        fireplaceS.setPaused(true);
+        pianoS.setPaused(true);
+    }
 }
