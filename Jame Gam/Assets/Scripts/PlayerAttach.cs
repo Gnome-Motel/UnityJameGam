@@ -12,6 +12,8 @@ public class PlayerAttach : MonoBehaviour
     private PlayerMovement playerMovement;
 
     [SerializeField] private Transform startingPeg;
+    [SerializeField] public bool story;
+    [SerializeField] public StoryProgress prog;
 
     [Header("Hooked Movement")]
     [SerializeField] float initialGravitySpeed;
@@ -31,6 +33,7 @@ public class PlayerAttach : MonoBehaviour
 
     [Header("Effects")]
     [SerializeField] private GameObject grabEffect;
+
 
     private EventInstance clickS;
 
@@ -141,6 +144,10 @@ public class PlayerAttach : MonoBehaviour
     //Function to hook a player to a peg. Locks individual movement, parents them, aligns player, and updates the most recent peg
     public void Attatch(Transform peg, bool resetLives = true)
     {
+        if (story)
+        {
+            prog.UpdateLevel(peg);
+        }
         float xMagnitude = playerRB.velocity.x * (1- (transform.rotation.z / 90));
         float yMagnitude = playerRB.velocity.y * (transform.rotation.z / 90);
 
