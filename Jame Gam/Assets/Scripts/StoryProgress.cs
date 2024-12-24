@@ -25,7 +25,7 @@ public class StoryProgress : MonoBehaviour
             {
                 levelSections[level + 1].SetActive(true);
             }
-            cameraFollow.riseSpeed = level *0.5f;
+            cameraFollow.riseSpeed = level *0.3f;
         }
     }
 
