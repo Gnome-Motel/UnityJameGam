@@ -10,44 +10,67 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private Vector3 offset = new Vector3(0, 0, -10);
     public Transform deathPlane;
-    private float lowestY;
+    public float lowestY;
     private PlayerMovement playerMovement;
+    private PlayerAttach playerAttach;
 
     [SerializeField] private TextMeshProUGUI scoreText;
     private int displayScore;
     [SerializeField] private float followSpeed;
-    [SerializeField] private float riseSpeed = 0.125f;
-    [SerializeField] private float riseSpeedIncreaseRate = 8;
+    [SerializeField] public float riseSpeed = 0.125f;
+    [SerializeField] private float riseSpeedIncreaseRate = 8f;
 
-    private Animator anim;
     private ScoreManager scoreManager;
 
     // Start is called before the first frame update
     void Start()
     {
         playerMovement = target.GetComponent<PlayerMovement>();
-        scoreManager = FindObjectOfType<ScoreManager>();
-        anim = GetComponent<Animator>();
+        playerAttach = target.GetComponent<PlayerAttach>();
+        if (!playerAttach.story)
+        {
+            scoreManager = FindObjectOfType<ScoreManager>();
+        }
     }
 
     void Update() {
-        if (playerMovement.hooked && lowestY < transform.position.y) {
-            lowestY = transform.position.y;
-            scoreManager.SetScore((int)MathF.Round(lowestY*100, 0));
+        if (playerAttach.story)
+        {
+            if (playerMovement.hooked && lowestY < transform.position.y)
+            {
+                lowestY = transform.position.y;
+            }
+            if (playerMovement.hooked)
+            {
+                lowestY += Time.deltaTime * riseSpeed;
+            }
         }
-        if (playerMovement.hooked) { 
-            lowestY += Time.deltaTime * riseSpeed;
-            riseSpeed = Mathf.Sqrt(scoreManager.GetScore()) / riseSpeedIncreaseRate;
-        }
+        else
+        {
+            if (playerMovement.hooked && lowestY < transform.position.y)
+            {
+                lowestY = transform.position.y;
+                scoreManager.SetScore((int)MathF.Round(lowestY * 100, 0));
+            }
+            if (playerMovement.hooked)
+            {
+                lowestY += Time.deltaTime * riseSpeed;
+                riseSpeed = Mathf.Sqrt(scoreManager.GetScore()) / riseSpeedIncreaseRate;
+            }
 
-        if (displayScore + 25 <= scoreManager.GetScore() ) {
-            displayScore +=5;
-        } else if (displayScore < scoreManager.GetScore()) {
-            displayScore+=1;
-        }
+            if (displayScore + 25 <= scoreManager.GetScore())
+            {
+                displayScore += 5;
+            }
+            else if (displayScore < scoreManager.GetScore())
+            {
+                displayScore += 1;
+            }
 
-        if (displayScore > 0 ){
-            scoreText.text = displayScore.ToString();
+            if (displayScore > 0)
+            {
+                scoreText.text = displayScore.ToString();
+            }
         }
     }
 
