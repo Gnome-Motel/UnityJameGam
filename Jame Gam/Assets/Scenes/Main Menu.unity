@@ -209,6 +209,13 @@ MonoBehaviour:
       Data3: 754232255
       Data4: 772794653
     Path: event:/Death sound
+  <PlayingSound>k__BackingField:
+    Guid:
+      Data1: 1204105169
+      Data2: 1140746410
+      Data3: 957137807
+      Data4: 1984785249
+    Path: event:/Level music
   <OcaHSound>k__BackingField:
     Guid:
       Data1: -229872306
