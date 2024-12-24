@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] public bool story;
     [SerializeField] public StoryProgress prog;
+    bool died = false;
 
     EventInstance fallS;
     EventInstance gameoverS;
@@ -43,9 +44,16 @@ public class PlayerMovement : MonoBehaviour
         if (peg != null) 
         {   
             GameObject camera = FindObjectOfType<CameraFollow>().gameObject;
-            if (highestPeg.transform.position.y <= camera.GetComponent<CameraFollow>().deathPlane.position.y) {
-                gameoverS.start();
-                FindObjectOfType<SceneTransition>().LoadScene("DeathScreen");
+            if (highestPeg.transform.position.y <= camera.GetComponent<CameraFollow>().deathPlane.position.y && died == false) {
+                died = true;
+                if (!story) {
+                    gameoverS.start();
+                    FindObjectOfType<SceneTransition>().LoadScene("DeathScreen");
+                }
+                if (story) {
+                    gameoverS.start();
+                    FindObjectOfType<GameOverScreen>().DisplayScreen();
+                }
             }
             else
             {

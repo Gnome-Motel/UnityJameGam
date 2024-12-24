@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class StoryProgress : MonoBehaviour
 {
-    [SerializeField] List<Transform> startingPegs = new();
-    [SerializeField] List<GameObject> levelSections = new();
+    public Transform[] startingPegs;
+    [SerializeField] GameObject[] levelSections;
     public static int level = 0;
 
     [SerializeField] CameraFollow cameraFollow;
@@ -13,7 +13,9 @@ public class StoryProgress : MonoBehaviour
 
     public void UpdateLevel(Transform hookedPeg)
     {
-        int pegLevel = levelSections.IndexOf(hookedPeg.transform.parent.gameObject);
+        ValidateStartingPegs();
+
+        int pegLevel = System.Array.IndexOf(levelSections, hookedPeg.transform.parent.gameObject);
         if (level != pegLevel)
         {
             level = pegLevel;
@@ -21,7 +23,7 @@ public class StoryProgress : MonoBehaviour
             {
                 levelSections[level - 2].SetActive(false);
             }
-            if (level < levelSections.Count - 1)
+            if (level < levelSections.Length - 1)
             {
                 levelSections[level + 1].SetActive(true);
             }
@@ -31,9 +33,40 @@ public class StoryProgress : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("Ascended");
-        playerAttach.Attatch(startingPegs[level]);
+        Transform startingPeg = startingPegs[level];
+        Debug.Log(startingPeg);
+    
+        float yPos = startingPeg.position.y;
+        cameraFollow.gameObject.transform.position = new Vector2(cameraFollow.gameObject.transform.position.x, yPos);
+        cameraFollow.lowestY = yPos;
+
+        playerAttach.Attatch(startingPeg, resetLevel:false);
+        Debug.Log("Attached to starting peg");
+
         cameraFollow.riseSpeed = 0f;
-        cameraFollow.lowestY = startingPegs[level].transform.position.y;
+        Debug.Log("Reset Camera");
+
+
+        Debug.Log("Ascended");
+    }
+
+    private void LogStartingPegs()
+    {
+        Debug.Log($"StartingPegs count: {startingPegs.Length}");
+        for (int i = 0; i < startingPegs.Length; i++)
+        {
+            Debug.Log($"startingPegs[{i}]: {startingPegs[i]?.name ?? "null"}");
+        }
+    }
+
+    private void ValidateStartingPegs()
+    {
+    for (int i = 0; i < startingPegs.Length; i++)
+    {
+        if (startingPegs[i] == null)
+        {
+            Debug.LogError($"startingPegs[{i}] is missing!", this);
+        }
+    }
     }
 }
